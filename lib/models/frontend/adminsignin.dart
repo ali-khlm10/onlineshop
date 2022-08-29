@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/frontend/adminPanel.dart';
 
 class adminSignin extends StatefulWidget {
   final Size size;
@@ -78,7 +79,14 @@ class _adminSigninState extends State<adminSignin> {
                 height: widget.size.height * 0.04,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => panelmanagement(size: widget.size),
+                    ),
+                  );
+                },
                 child: const Center(
                   child: Text('ورود'),
                 ),
