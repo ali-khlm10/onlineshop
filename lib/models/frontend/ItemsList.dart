@@ -38,7 +38,7 @@ class _ItemslistState extends State<Itemslist> {
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 5),
               child: Material(
-                color: Colors.teal,
+                color: Colors.teal[300],
                 borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(15),
                   topLeft: Radius.circular(15),

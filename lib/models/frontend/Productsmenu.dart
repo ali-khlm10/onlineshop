@@ -18,7 +18,7 @@ class _productsmenuState extends State<productsmenu> {
         flex: 1,
         child: Container(
           // margin: const EdgeInsets.only(top: 10),
-          color: Colors.green[100],
+          color: Colors.green[50],
           height: widget.size.height * .8,
           child: SingleChildScrollView(
             child: Column(
@@ -41,7 +41,7 @@ class _productsmenuState extends State<productsmenu> {
                     i++) ...[
                   Container(
                     height: 30,
-                    color: Colors.red,
+                    color: Colors.green[300],
                     margin: EdgeInsets.all(5),
                     child: Center(
                       child: Text(
