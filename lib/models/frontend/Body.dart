@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/frontend/ItemsList.dart';
+import 'package:onlineshop/models/frontend/Productsmenu.dart';
+import 'package:onlineshop/models/frontend/Showproducts.dart';
+import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key, required this.size}) : super(key: key);
@@ -20,110 +24,8 @@ class _BodyState extends State<Body> {
           ),
           Row(
             children: [
-              Expanded(
-                flex: 5,
-                child: Container(
-                  // color: Colors.red,
-                  height: widget.size.height * .8,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Container(
-                          color: Colors.yellow,
-                          height: 200,
-                          margin: EdgeInsets.all(5),
-                        ),
-                        Container(
-                          color: Colors.yellow,
-                          height: 200,
-                          margin: EdgeInsets.all(5),
-                        ),
-                        Container(
-                          color: Colors.yellow,
-                          height: 200,
-                          margin: EdgeInsets.all(5),
-                        ),
-                        Container(
-                          color: Colors.yellow,
-                          height: 200,
-                          margin: EdgeInsets.all(5),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.blue,
-                  height: widget.size.height * .8,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: const [
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                        Text('item1'),
-                      ],
-                    ),
-                  ),
-                ),
-              )
+              showproducts(size: widget.size),
+              productsmenu(size: widget.size),
             ],
           ),
         ],

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/gestures.dart';
+import 'package:onlineshop/models/frontend/constants.dart';
+import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:provider/provider.dart';
 
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
   @override
@@ -29,7 +32,7 @@ class _ItemslistState extends State<Itemslist> {
         behavior: MyCustomScrollBehavior(),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 5,
+          itemCount: listofCategories.length,
           controller: controller,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
@@ -40,18 +43,30 @@ class _ItemslistState extends State<Itemslist> {
                   bottomRight: Radius.circular(15),
                   topLeft: Radius.circular(15),
                 ),
-                child: InkWell(
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(15),
-                    topLeft: Radius.circular(15),
-                  ),
-                  onTap: () {},
-                  child: SizedBox(
-                    width: widget.size.width * .2,
-                    child: const Center(
-                      child: Text(
-                        'item',
-                        style: TextStyle(color: Colors.black),
+                child: Consumer<listofcategorysubjectProvider>(
+                  builder: (context, value, child) => InkWell(
+                    borderRadius: const BorderRadius.only(
+                      bottomRight: Radius.circular(15),
+                      topLeft: Radius.circular(15),
+                    ),
+                    onTap: () {
+                      if (index == 0) {
+                        value.listofmobilesubjects();
+                      } else if (index == 1) {
+                        value.listofcamerasubjects();
+                      } else if (index == 2) {
+                        value.listofhomeappliancessubjects();
+                      } else if (index == 3) {
+                        value.listofcomputersubjects();
+                      }
+                    },
+                    child: SizedBox(
+                      width: widget.size.width * .2,
+                      child: Center(
+                        child: Text(
+                          listofCategories[index],
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
