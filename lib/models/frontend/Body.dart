@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:onlineshop/models/frontend/ItemsList.dart';
 import 'package:onlineshop/models/frontend/Productsmenu.dart';
 import 'package:onlineshop/models/frontend/Showproducts.dart';
-import 'package:onlineshop/models/frontend/provider.dart';
-import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key, required this.size}) : super(key: key);
