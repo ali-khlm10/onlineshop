@@ -28,26 +28,26 @@ PreferredSizeWidget Appbar(BuildContext context, Size size) {
               ),
             ),
           ),
-        )
+        ),
       ],
     ),
-    leadingWidth: 150,
+    leadingWidth: size.width * .33,
     actions: [
-      SizedBox(
-        width: 150,
-        child: Center(
-          child: TextField(
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              isDense: true,
-            ),
-            maxLines: 2,
-          ),
-        ),
-      ),
+      // SizedBox(
+      //   width: 150,
+      //   child: Center(
+      //     child: TextField(
+      //       decoration: InputDecoration(
+      //         contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+      //         border: OutlineInputBorder(
+      //           borderRadius: BorderRadius.circular(15),
+      //         ),
+      //         isDense: true,
+      //       ),
+      //       maxLines: 2,
+      //     ),
+      //   ),
+      // ),
       const SizedBox(width: 20),
       Container(
         alignment: Alignment.center,
@@ -63,4 +63,90 @@ PreferredSizeWidget Appbar(BuildContext context, Size size) {
     elevation: 0,
     toolbarHeight: 100,
   );
+}
+
+class ShopAppBar extends StatefulWidget {
+  const ShopAppBar({Key? key, required this.size}) : super(key: key);
+  final Size size;
+
+  @override
+  State<ShopAppBar> createState() => _ShopAppBarState();
+}
+
+class _ShopAppBarState extends State<ShopAppBar> {
+  Widget _Expanded({int? flex, Widget? child, Color? color}) {
+    return Expanded(
+      flex: flex!,
+      child: Container(
+        color: color,
+        child: child,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      height: widget.size.height * .13,
+      color: Colors.teal[800],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _Expanded(
+            flex: 4,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _Expanded(
+                  flex: 1,
+                  child: IconButton(
+                    onPressed: () {
+                      print('fhcgv');
+                    },
+                    icon: const Icon(Icons.shopping_cart),
+                    color: Colors.white,
+                  ),
+                ),
+                _Expanded(
+                  flex: 3,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                adminSignin(size: widget.size),
+                          ));
+                    },
+                    child: Text(
+                      'ورود مدیران',
+                      style: TextStyle(
+                          fontSize: 17,
+                          color: Colors.blue[300],
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          _Expanded(
+            flex: 7,
+            child: Container(
+              alignment: Alignment.centerRight,
+              child: const Text(
+                'فروشگاه اینترنتی',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

@@ -15,11 +15,11 @@ class _productsmenuState extends State<productsmenu> {
   Widget build(BuildContext context) {
     return Consumer<listofcategorysubjectProvider>(
       builder: (context, value, child) => Expanded(
-        flex: 1,
+        flex: 2,
         child: Container(
           // margin: const EdgeInsets.only(top: 10),
           color: Colors.green[50],
-          height: widget.size.height * .8,
+          height: widget.size.height * .52,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -40,15 +40,20 @@ class _productsmenuState extends State<productsmenu> {
                     i < value.getlistofcategorysubject.length;
                     i++) ...[
                   Container(
-                    height: 30,
+                    // height: 30,
                     color: Colors.green[300],
                     margin: EdgeInsets.all(5),
                     child: Center(
-                      child: Text(
-                        value.getlistofcategorysubject[i],
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                        child: Text(
+                          value.getlistofcategorysubject[i],
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),

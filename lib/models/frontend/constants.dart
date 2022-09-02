@@ -3,10 +3,15 @@
 import 'package:flutter/material.dart';
 
 const List<String> listofCategories = [
+  'صفحه اصلی',
   'موبایل',
   'دوربین',
   'لوازم خانگی',
   'کامپیوتر',
+];
+
+List<String> listofmainpagecategory = [
+  '. توجه: این صفحه اصلی می باشد',
 ];
 
 List<String> listofmobilecategory = [

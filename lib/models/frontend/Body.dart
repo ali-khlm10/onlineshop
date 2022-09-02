@@ -13,19 +13,12 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
         children: [
-          Itemslist(size: widget.size),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            children: [
-              showproducts(size: widget.size),
-              productsmenu(size: widget.size),
-            ],
-          ),
+          showproducts(size: widget.size),
+          productsmenu(size: widget.size),
         ],
       ),
     );

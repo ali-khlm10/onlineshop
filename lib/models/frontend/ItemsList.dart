@@ -26,58 +26,90 @@ class _ItemslistState extends State<Itemslist> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 80,
-      child: ScrollConfiguration(
-        behavior: MyCustomScrollBehavior(),
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: listofCategories.length,
-          controller: controller,
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              child: Material(
-                color: Colors.teal[300],
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(15),
-                  topLeft: Radius.circular(15),
-                ),
-                child: Consumer<listofcategorysubjectProvider>(
-                  builder: (context, value, child) => InkWell(
-                    borderRadius: const BorderRadius.only(
-                      bottomRight: Radius.circular(15),
-                      topLeft: Radius.circular(15),
-                    ),
-                    onTap: () {
-                      if (index == 0) {
-                        value.listofmobilesubjects();
-                      } else if (index == 1) {
-                        value.listofcamerasubjects();
-                      } else if (index == 2) {
-                        value.listofhomeappliancessubjects();
-                      } else if (index == 3) {
-                        value.listofcomputersubjects();
-                      }
-                    },
-                    child: SizedBox(
-                      width: widget.size.width * .2,
-                      child: Center(
-                        child: Text(
-                          listofCategories[index],
-                          style: const TextStyle(color: Colors.white),
-                        ),
+    return Container(
+      // color: Colors.red,
+      margin: const EdgeInsets.symmetric(horizontal: 13),
+      height: widget.size.height * .08,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: listofCategories.length,
+        controller: controller,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            child: Material(
+              color: Colors.teal[300],
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(15),
+                topLeft: Radius.circular(15),
+              ),
+              child: Consumer<listofcategorysubjectProvider>(
+                builder: (context, value, child) => InkWell(
+                  borderRadius: const BorderRadius.only(
+                    bottomRight: Radius.circular(15),
+                    topLeft: Radius.circular(15),
+                  ),
+                  onTap: () {
+                    if (index == 0) {
+                      value.listofmainpagesubjects();
+                    } else if (index == 1) {
+                      value.listofmobilesubjects();
+                    } else if (index == 2) {
+                      value.listofcamerasubjects();
+                    } else if (index == 3) {
+                      value.listofhomeappliancessubjects();
+                    } else if (index == 4) {
+                      value.listofcomputersubjects();
+                    }
+                  },
+                  child: SizedBox(
+                    width: widget.size.width * .3,
+                    child: Center(
+                      child: Text(
+                        listofCategories[index],
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
                 ),
               ),
-            );
-          },
-          reverse: true,
-          padding: const EdgeInsets.only(top: 20),
-        ),
+            ),
+          );
+        },
+        reverse: true,
+        padding: const EdgeInsets.symmetric(vertical: 10),
       ),
     );
   }
 }
+
+// class ItemsList extends StatefulWidget {
+//   const ItemsList({Key? key, required this.size}) : super(key: key);
+//   final Size size;
+
+//   @override
+//   State<ItemsList> createState() => _ItemsListState();
+// }
+
+// class _ItemsListState extends State<ItemsList> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: widget.size.height * .17,
+//       color: Colors.red,
+//       child: Row(
+//         children: [
+//           Expanded(
+//             flex: ,
+//             child: Container(
+
+//             ),
+//           ),
+//                 Expanded(
+//             child: Container(),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
