@@ -10,96 +10,134 @@ class adminSignin extends StatefulWidget {
 }
 
 class _adminSigninState extends State<adminSignin> {
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  String errortext = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Center(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            margin: EdgeInsets.symmetric(
-              horizontal: widget.size.width * .2,
-              vertical: widget.size.height * .18,
-            ),
-            width: 350,
-            height: 380,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.teal,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: widget.size.height * 0.05,
-                ),
-                const Text('پنل مدیریت سایت'),
-                SizedBox(
-                  height: widget.size.height * 0.08,
-                ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: const Text(
-                    'نام کاربری',
-                    textAlign: TextAlign.end,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              margin: EdgeInsets.only(
+                left: widget.size.width * .15,
+                right: widget.size.width * .15,
+                top: widget.size.height * .18,
+                bottom: widget.size.height * .09,
+              ),
+              // width: 350,
+              // height: 380,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.teal[300],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: widget.size.height * 0.05,
                   ),
-                ),
-                SizedBox(
-                  height: widget.size.height * 0.01,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+                  const Text(
+                    'پنل مدیریت سایت',
+                    style: TextStyle(
+                      color: Colors.white,
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: widget.size.height * 0.01,
-                ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: const Text(
-                    'رمز عبور',
-                    textAlign: TextAlign.end,
+                  SizedBox(
+                    height: widget.size.height * 0.08,
                   ),
-                ),
-                SizedBox(
-                  height: widget.size.height * 0.01,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: const Text(
+                      'نام کاربری',
+                      textAlign: TextAlign.end,
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: widget.size.height * 0.04,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            panelmanagement(size: widget.size),
+                  SizedBox(
+                    height: widget.size.height * 0.01,
+                  ),
+                  TextField(
+                    controller: usernameController,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                    );
-                  },
-                  child: const Center(
-                    child: Text('ورود'),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 60,
-                )
-              ],
+                  SizedBox(
+                    height: widget.size.height * 0.01,
+                  ),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    child: const Text(
+                      'رمز عبور',
+                      textAlign: TextAlign.end,
+                    ),
+                  ),
+                  SizedBox(
+                    height: widget.size.height * 0.01,
+                  ),
+                  TextField(
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 20),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: widget.size.height * 0.04,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (usernameController.text == 'admin' &&
+                          passwordController.text == 'admin') {
+                        usernameController.clear();
+                        passwordController.clear();
+                        errortext = '';
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                panelmanagement(size: widget.size),
+                          ),
+                        );
+                      } else {
+                        usernameController.clear();
+                        passwordController.clear();
+
+                        errortext = '!! نام کاربری یا رمز عبور اشتباه است';
+                      }
+                      setState(() {});
+                    },
+                    child: const Center(
+                      child: Text('ورود'),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  )
+                ],
+              ),
             ),
-          ),
+            Text(
+              errortext,
+              style: const TextStyle(
+                color: Colors.red,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
         ),
       ),
     );
