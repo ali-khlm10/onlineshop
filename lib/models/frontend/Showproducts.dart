@@ -19,15 +19,14 @@ class _showproductsState extends State<showproducts> {
           color: Colors.blueGrey[100],
         ),
         margin: const EdgeInsets.all(5),
-        height: widget.size.height * .8,
+        height: widget.size.height * .52,
         child: SingleChildScrollView(
           child: Column(
             children: [
               for (var i = 0; i < 10; i++) ...[
                 Container(
-                  height: 300,
-                  width: 600,
-                  margin: const EdgeInsets.all(15),
+                  height: widget.size.height * .15,
+                  margin: const EdgeInsets.all(10),
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -37,7 +36,7 @@ class _showproductsState extends State<showproducts> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(15),
                         child: Image.asset(
                           'assets/images/camera_1.jpg',
                         ),
@@ -48,7 +47,7 @@ class _showproductsState extends State<showproducts> {
                           const Text(
                             'دوربین مداربسته',
                             style: TextStyle(
-                              fontSize: 22,
+                              fontSize: 16,
                               color: Colors.black,
                             ),
                             textAlign: TextAlign.end,
@@ -58,7 +57,7 @@ class _showproductsState extends State<showproducts> {
                             child: const Text(
                               'اطلاعات بیشتر',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 14,
                                 decoration: TextDecoration.underline,
                                 color: Colors.blue,
                               ),
