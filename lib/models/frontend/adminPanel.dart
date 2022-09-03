@@ -58,6 +58,9 @@ class _panelmanagementState extends State<panelmanagement> {
                                 child: Center(
                                   child: Text(
                                     adminpanelcategory[index],
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),

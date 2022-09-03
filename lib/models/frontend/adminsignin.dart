@@ -106,8 +106,6 @@ class _adminSigninState extends State<adminSignin> {
                         onPressed: () async {
                           if (await authenticateAdmin(usernameController.text,
                               passwordController.text)) {
-                            value.initialadminpanelbody(
-                                widget.size, usernameController.text);
                             usernameController.clear();
                             passwordController.clear();
                             errortext = '';

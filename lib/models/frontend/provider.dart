@@ -6,7 +6,16 @@ class listofcategorysubjectProvider extends ChangeNotifier {
   List<String> _listofcategorysubject = listofmainpagecategory;
   String _menuName = listofCategories[0];
   Widget _panelItemsBody = Container(
-    child: Center(child: Text('hello')),
+    // alignment: Alignment.centerLeft,
+    margin: const EdgeInsets.symmetric(vertical: 100),
+    padding: const EdgeInsets.symmetric(horizontal: 30),
+    child: const Text(
+      'با سلام\n.به بخش مدیریت فروشگاه خوش آمده اید \n .جهت ادامه کار یکی از دکمه های بالا را انتخاب کنید',
+      style: TextStyle(
+        color: Colors.blue,
+      ),
+      textAlign: TextAlign.right,
+    ),
   );
 
   // Size? _mainsize;
