@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/frontend/adminsignin.dart';
+import 'package:onlineshop/models/frontend/changepassword.dart';
+import 'package:onlineshop/models/frontend/constants.dart';
+import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:provider/provider.dart';
 
 class panelmanagement extends StatefulWidget {
   const panelmanagement({Key? key, required this.size}) : super(key: key);
@@ -17,133 +22,62 @@ class _panelmanagementState extends State<panelmanagement> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.symmetric(horizontal: widget.size.width * 0.15),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  SizedBox(
-                    height: 100,
-                  ),
-                  Expanded(child: Center(child: Text('تغییر رمز'))),
-                  Expanded(child: Center(child: Text('بخش فروش'))),
-                  Expanded(child: Center(child: Text('دوربین'))),
-                  Expanded(child: Center(child: Text('موبایل'))),
-                  SizedBox(
-                    height: 20,
-                  ),
-                ],
+        child: ChangeNotifierProvider<listofcategorysubjectProvider>(
+          create: (_) => listofcategorysubjectProvider(),
+          child: Consumer<listofcategorysubjectProvider>(
+            builder: (context, value, child) => Container(
+              // color: Colors.red,
+              // height: widget.size.height * .08,
+              // width: 30,
+              margin: EdgeInsets.symmetric(
+                horizontal: widget.size.width * 0.1,
+                vertical: widget.size.height * 0.1,
               ),
-              const Divider(
-                color: Colors.grey,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
+              child: Column(
                 children: [
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 1),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      height: widget.size.height * .4,
-                      // color: Colors.yellow,
-                      child: const Center(
-                        child: Text('تغییر'),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 1),
-
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      height: widget.size.height * .4,
-                      // color: Colors.red,
-                      child: const Center(
-                        child: Text('مدیریت فروش'),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 1),
-
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      height: widget.size.height * .4,
-                      // color: Colors.blue,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Center(
-                            child: Text(
-                              'اضافه کردن محصول',
-                              textAlign: TextAlign.center,
+                  SizedBox(
+                    // color: Colors.red,
+                    height: 50,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: adminpanelcategory.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 2),
+                          child: Material(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.blue,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(5),
+                              onTap: () {
+                                if (index == 3) {
+                                  value.changepasswordboddy(widget.size);
+                                }
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 3),
+                                child: Center(
+                                  child: Text(
+                                    adminpanelcategory[index],
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            'اضافه کردن موضوع',
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
+                        );
+                      },
+                      reverse: true,
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 1),
-
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      height: widget.size.height * .4,
-                      // color: Colors.blue,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Center(
-                            child: Text(
-                              'اضافه کردن محصول',
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            'اضافه کردن موضوع',
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
+                  const Divider(
+                    color: Colors.grey,
                   ),
+                  // changepass(size: widget.size),
+                  value.getpanelItemsBody,
                 ],
               ),
-            ],
+            ),
           ),
         ),
       ),
