@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
 import 'package:onlineshop/models/frontend/adminPanel.dart';
 
 class adminSignin extends StatefulWidget {
@@ -97,9 +98,9 @@ class _adminSigninState extends State<adminSignin> {
                     height: widget.size.height * 0.04,
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      if (usernameController.text == 'admin' &&
-                          passwordController.text == 'admin') {
+                    onPressed: () async {
+                      if (await authenticateAdmin(
+                          usernameController.text, passwordController.text)) {
                         usernameController.clear();
                         passwordController.clear();
                         errortext = '';
