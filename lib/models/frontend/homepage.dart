@@ -19,7 +19,7 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ChangeNotifierProvider(
+      body: ChangeNotifierProvider<listofcategorysubjectProvider>(
         create: (_) => listofcategorysubjectProvider(),
         child: SafeArea(
           child: SingleChildScrollView(
