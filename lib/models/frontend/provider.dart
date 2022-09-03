@@ -5,7 +5,9 @@ import 'package:onlineshop/models/frontend/constants.dart';
 class listofcategorysubjectProvider extends ChangeNotifier {
   List<String> _listofcategorysubject = listofmainpagecategory;
   String _menuName = listofCategories[0];
-  Widget _panelItemsBody = Container();
+  Widget _panelItemsBody = Container(
+    child: Center(child: Text('hello')),
+  );
 
   // Size? _mainsize;
 
@@ -57,8 +59,40 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     return _panelItemsBody;
   }
 
-  void changepasswordboddy(Size size) {
+  void changepasswordbody(Size size) {
     _panelItemsBody = changepass(size: size);
+    notifyListeners();
+  }
+
+  void afterchangepasswordbody(Size size) {
+    _panelItemsBody = Container(
+      margin: EdgeInsets.symmetric(vertical: size.height * .2),
+      padding: EdgeInsets.symmetric(horizontal: size.width * .2),
+      child: const Center(
+        child: Text(
+          '. تغییر رمز با موفقیت انجام شد',
+          style: TextStyle(
+            color: Colors.green,
+          ),
+        ),
+      ),
+    );
+    notifyListeners();
+  }
+
+  void initialadminpanelbody(Size size, String username) {
+    _panelItemsBody = Container(
+      margin: EdgeInsets.symmetric(vertical: size.height * .2),
+      padding: EdgeInsets.symmetric(horizontal: size.width * .2),
+      child: Center(
+        child: Text(
+          'سلام $username محترم \nبه بخش مدیریت فروشگاه خوش آمده اید \n . جهت ادامه کار یکی از دکمه های بالا را کلیک کنید',
+          style: const TextStyle(
+            color: Colors.green,
+          ),
+        ),
+      ),
+    );
     notifyListeners();
   }
 }
