@@ -28,31 +28,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      // home: homePage(),
-      home: App(),
+      home: homePage(),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class App extends StatefulWidget {
-  const App({Key? key}) : super(key: key);
-
-  @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: () async {
-        List data = await getAllAdmins();
-        print(data);
-        await updateAdminPassword('Pooya', '7475');
-        data = await getAllAdmins();
-        print(data);
-      }),
     );
   }
 }
