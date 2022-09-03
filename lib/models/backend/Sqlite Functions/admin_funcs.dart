@@ -44,11 +44,13 @@ Future<bool> authenticateAdmin(String userName, String password) async {
   }
 }
 
-Future<void> updateAdminPassword(String userName, String password) async {
+Future<void> updateAdminPassword(
+    String userName, String oldPassword, String newPassword) async {
   try {
     Database database = await openDB();
-    database.update('Admin', {'password': password},
-        where: 'userName = ?', whereArgs: [userName]);
+    database.update('Admin', {'password': newPassword},
+        where: 'userName = ? AND password = ?',
+        whereArgs: [userName, oldPassword]);
     database.close();
   } catch (e) {
     print('Error: $e');
