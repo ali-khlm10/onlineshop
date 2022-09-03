@@ -5,8 +5,9 @@ import 'package:onlineshop/models/backend/classes.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 
-Future<void> addAdmin(Admin admin) async {
+Future<void> addAdmin(String userName, String password) async {
   try {
+    Admin admin = Admin(userName: userName, password: password);
     Database database = await openDB();
     int res = await database.insert('Admin', admin.toMap());
     print('res = $res');

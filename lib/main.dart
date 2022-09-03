@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
-import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/homepage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'models/backend/Sqlite Functions/sqlite_funcs.dart';
@@ -16,6 +15,7 @@ Future<void> main() async {
 
   try {
     Database db = await openDB();
+    await addAdmin('Pat_Mat', '8569');
   } catch (e) {
     print('ErrorS1: $e');
   }
