@@ -45,3 +45,10 @@ List<String> listofcomputercategory = [
 ];
 
 List<String> listofshowproducts = [''];
+
+List<String> adminpanelcategory = [
+  'موبایل',
+  'دوربین',
+  'بخش فروش',
+  'تغیر رمز',
+];
