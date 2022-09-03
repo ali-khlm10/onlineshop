@@ -1,10 +1,11 @@
 // ignore_for_file: avoid_print, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/homepage.dart';
 import 'package:sqflite/sqflite.dart';
-
-import 'models/backend/sqlite_funcs.dart';
+import 'models/backend/Sqlite Functions/sqlite_funcs.dart';
 
 Future<void> main() async {
   try {
@@ -14,8 +15,7 @@ Future<void> main() async {
   }
 
   try {
-    Database db = await createDataBase();
-    addAdmin('Pooya', '8569', db);
+    Database db = await openDB();
   } catch (e) {
     print('ErrorS1: $e');
   }
@@ -28,8 +28,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: homePage(),
+      // home: homePage(),
+      home: App(),
       debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () async {
+        List data = await getAllAdmins();
+        print(data);
+        await updateAdminPassword('Pooya', '7475');
+        data = await getAllAdmins();
+        print(data);
+      }),
     );
   }
 }
