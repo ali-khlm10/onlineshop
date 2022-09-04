@@ -23,14 +23,14 @@ class _mobilemanagementState extends State<mobilemanagement> {
         children: [
           ElevatedButton(
             onPressed: () {},
-            child: Text('اضافه کردن برند برای موبایل'),
+            child: Text('مدیریت برندهای موبایل'),
           ),
           SizedBox(
             height: 10,
           ),
           ElevatedButton(
             onPressed: () {},
-            child: Text('اضافه کردن محصول برای یک برند موبایل'),
+            child: Text('مدیریت محصول برای یک برند موبایل'),
           ),
         ],
       ),
