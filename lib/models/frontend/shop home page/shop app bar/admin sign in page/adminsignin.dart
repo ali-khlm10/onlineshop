@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
-import 'package:onlineshop/models/frontend/adminPanel.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/adminPanel.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
 
@@ -104,26 +103,26 @@ class _adminSigninState extends State<adminSignin> {
                       ),
                       ElevatedButton(
                         onPressed: () async {
-                          if (await authenticateAdmin(usernameController.text,
-                              passwordController.text)) {
-                            usernameController.clear();
-                            passwordController.clear();
-                            errortext = '';
+                          // if (await authenticateAdmin(usernameController.text,
+                          //     passwordController.text)) {
+                          //   usernameController.clear();
+                          //   passwordController.clear();
+                          //   errortext = '';
 
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    panelmanagement(size: widget.size),
-                              ),
-                            );
-                          } else {
-                            usernameController.clear();
-                            passwordController.clear();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  panelmanagement(size: widget.size),
+                            ),
+                          );
+                          // } else {
+                          //   usernameController.clear();
+                          //   passwordController.clear();
 
-                            errortext = '!! نام کاربری یا رمز عبور اشتباه است';
-                          }
-                          setState(() {});
+                          //   errortext = '!! نام کاربری یا رمز عبور اشتباه است';
+                          // }
+                          // setState(() {});
                         },
                         child: const Center(
                           child: Text('ورود'),

@@ -48,7 +48,13 @@ class _panelmanagementState extends State<panelmanagement> {
                             child: InkWell(
                               borderRadius: BorderRadius.circular(5),
                               onTap: () {
-                                if (index == 3) {
+                                if (index == 0) {
+                                  value.changemobilemanagementbody(widget.size);
+                                } else if (index == 1) {
+                                  value.changecameramanagementbody(widget.size);
+                                } else if (index == 2) {
+                                  value.changesellmanagementbody(widget.size);
+                                } else if (index == 3) {
                                   value.changepasswordbody(widget.size);
                                 }
                               },

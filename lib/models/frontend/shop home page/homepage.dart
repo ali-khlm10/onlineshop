@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:onlineshop/models/frontend/Appbar.dart';
-import 'package:onlineshop/models/frontend/Body.dart';
-import 'package:onlineshop/models/frontend/ItemsList.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/Appbar.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/ItemsList.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
-import 'package:onlineshop/models/frontend/searchWidget.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/body%20under%20of%20search%20widget/Body.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/searchWidget.dart';
 import 'package:provider/provider.dart';
 
 class homePage extends StatefulWidget {

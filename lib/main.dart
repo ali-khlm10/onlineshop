@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
-import 'package:onlineshop/models/frontend/homepage.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/homepage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'models/backend/Sqlite Functions/sqlite_funcs.dart';
 
