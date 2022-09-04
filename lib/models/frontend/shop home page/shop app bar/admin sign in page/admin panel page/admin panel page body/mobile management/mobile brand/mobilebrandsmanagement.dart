@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 
 class brandsmanagement extends StatefulWidget {
   const brandsmanagement({Key? key, required this.size}) : super(key: key);
@@ -48,6 +49,8 @@ class _brandsmanagementState extends State<brandsmanagement> {
           Divider(
             color: Colors.grey,
           ),
+
+          // for(var i=0;i<MobileCategory().length;)
         ],
       ),
     );
