@@ -64,7 +64,7 @@ class _brandsmanagementState extends State<brandsmanagement> {
                               ),
                             );
                           } else {
-                            value.changeupatebrandsmanagementbody(
+                            value.changeupatemobilebrandsmanagementbody(
                               widget.size,
                               listofmobilecategory[selectedIndex],
                               selectedIndex,
@@ -120,7 +120,8 @@ class _brandsmanagementState extends State<brandsmanagement> {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          value.changeaddbrandsmanagementbody(widget.size);
+                          value
+                              .changeaddmobilebrandsmanagementbody(widget.size);
                         },
                         child: const Text('اضافه'),
                         style: ElevatedButton.styleFrom(

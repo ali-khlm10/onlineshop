@@ -44,7 +44,20 @@ List<String> listofcomputercategory = [
   'lenevo',
 ];
 
-List<String> listofshowproducts = [''];
+List<Map<String, dynamic>> listofproductsformobile = [
+  {
+    'mobilebrand': 'nokia',
+    'mobileproduct': 's500',
+  },
+  {
+    'mobilebrand': 'nokia',
+    'mobileproduct': 's500',
+  },
+  {
+    'mobilebrand': 'nokia',
+    'mobileproduct': 's500',
+  },
+];
 
 List<String> adminpanelcategory = [
   'موبایل',
