@@ -45,7 +45,32 @@ class _brandsmanagementState extends State<brandsmanagement> {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (selectedIndex == -1) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: const SizedBox(
+                                  height: 50,
+                                  child: Center(
+                                    child: Text(
+                                      '!!لطفایکی از سطرها را انتخاب کنید',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                backgroundColor: Colors.red[200],
+                              ),
+                            );
+                          } else {
+                            value.changeupatebrandsmanagementbody(
+                              widget.size,
+                              listofmobilecategory[selectedIndex],
+                              selectedIndex,
+                            );
+                          }
+                        },
                         child: const Text('تغییر'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.yellow,
