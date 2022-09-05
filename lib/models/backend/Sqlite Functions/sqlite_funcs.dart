@@ -37,22 +37,14 @@ _onCreate(Database db, int version) async {
     CREATE TABLE IF NOT EXISTS Camera(
     name TEXT,
     catId INTEGER,
-    productId TEXT PRIMARY KEY,
+    productId INTEGER PRIMARY KEY,
     PicAddress TEXT,
-    kind TEXT,
-    dimension TEXT,
-    weight TEXT,
     color TEXT,
-    battery TEXT,
-    axbardariMomtad TEXT,
-    storageKind TEXT,
     internalStorage TEXT,
     resolution TEXT,
-    picFormat TEXT,
-    videoSpeed TEXT,
     explain TEXT,
     price TEXT,
-    status TEXT,
+    stock INTEGER,
     FOREIGN KEY(catId) REFERENCES CameraCat(catId))""";
 
   String mobileCatTable = """ 
@@ -64,33 +56,26 @@ _onCreate(Database db, int version) async {
     CREATE TABLE IF NOT EXISTS Mobile(
     name TEXT,
     catId INTEGER,
-    productId TEXT PRIMARY KEY,
+    productId INTEGER PRIMARY KEY,
     picAddress TEXT,
-    brand TEXT,
-    scrrenDimension TEXT,
     weight TEXT,
     color TEXT,
     battery TEXT,
-    storageKind TEXT,
     internalStorage TEXT,
     frontCameraResolution TEXT,
     backCameraResolution TEXT,
-    picFormat TEXT,
-    videoSpeed TEXT,
     explain TEXT,
     price TEXT,
-    status TEXT,
+    stock INTEGER,
     FOREIGN KEY(catId) REFERENCES MobileCat(catId))""";
 
   String orderTable = """ 
     CREATE TABLE IF NOT EXISTS Orders(
-    orderId TEXT PRIMARY KEY,
-    customerId TEXT,
-    productId TEXT,
-    productName TEXT,
-    catName TEXT,
-    catId TEXT,
-    status TEXT)""";
+    orderId INTEGER PRIMARY KEY,
+    customerId INTEGER,
+    productId INTEGER,
+    status TEXT,
+    FOREIGN KEY(customerId) REFERENCES User(customerId))""";
 
   String userTable = """ 
     CREATE TABLE IF NOT EXISTS User(

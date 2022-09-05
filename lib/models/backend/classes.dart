@@ -29,14 +29,14 @@ class CameraCategory {
 class Camera {
   final String name;
   final int catId;
-  final String productId;
+  final int productId;
   final String picAddress;
   final String color;
   final String internalStorage;
   final String resolution;
   final String explain;
   final String price;
-  final String status;
+  final int stock;
 
   Camera({
     required this.name,
@@ -48,7 +48,7 @@ class Camera {
     required this.resolution,
     required this.explain,
     required this.price,
-    required this.status,
+    required this.stock,
   });
 
   Map<String, Object> toMap() {
@@ -62,7 +62,7 @@ class Camera {
       'resolution': resolution,
       'explain': explain,
       'price': price,
-      'status': status
+      'stock': stock
     };
   }
 }
@@ -84,7 +84,7 @@ class MobileCategory {
 class Mobile {
   final String name;
   final int catId;
-  final String productId;
+  final int productId;
   final String picAddress;
   final String weight;
   final String color;
@@ -94,7 +94,7 @@ class Mobile {
   final String backCameraResolution;
   final String explain;
   final String price;
-  final String status;
+  final int stock;
 
   Mobile(
       {required this.name,
@@ -109,7 +109,7 @@ class Mobile {
       required this.backCameraResolution,
       required this.explain,
       required this.price,
-      required this.status});
+      required this.stock});
 
   Map<String, Object> toMap() {
     return {
@@ -125,34 +125,28 @@ class Mobile {
       'backCameraResolution': backCameraResolution,
       'explain': explain,
       'price': price,
-      'status': status,
+      'stock': stock,
     };
   }
 }
 
 class Order {
-  final String customerId;
-  final String productId;
-  final String productName;
-  final String catName;
-  final String catId;
+  final int orderId;
+  final int customerId;
+  final int productId;
   final String status;
 
   Order(
       {required this.customerId,
+      required this.orderId,
       required this.productId,
-      required this.productName,
-      required this.catName,
-      required this.catId,
       required this.status});
 
   Map<String, Object> toMap() {
     return {
+      'orderId': orderId,
       'customerId': customerId,
       'productId': productId,
-      'productName': productName,
-      'catName': catName,
-      'catId': catId,
       'status': status,
     };
   }
