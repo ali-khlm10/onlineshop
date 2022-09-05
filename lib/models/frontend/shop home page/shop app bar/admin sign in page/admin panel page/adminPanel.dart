@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:onlineshop/models/frontend/adminsignin.dart';
-import 'package:onlineshop/models/frontend/changepassword.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -50,16 +48,25 @@ class _panelmanagementState extends State<panelmanagement> {
                             child: InkWell(
                               borderRadius: BorderRadius.circular(5),
                               onTap: () {
-                                if (index == 3) {
-                                  value.changepasswordboddy(widget.size);
+                                if (index == 0) {
+                                  value.changemobilemanagementbody(widget.size);
+                                } else if (index == 1) {
+                                  value.changecameramanagementbody(widget.size);
+                                } else if (index == 2) {
+                                  value.changesellmanagementbody(widget.size);
+                                } else if (index == 3) {
+                                  value.changepasswordbody(widget.size);
                                 }
                               },
                               child: Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 3),
+                                    horizontal: 20, vertical: 3),
                                 child: Center(
                                   child: Text(
                                     adminpanelcategory[index],
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),
