@@ -15,7 +15,7 @@ Future<void> main() async {
 
   try {
     Database db = await openDB();
-    await addAdmin('Pat_Mat', '8569');
+    await addAdmin('admin', 'admin');
   } catch (e) {
     print('ErrorS1: $e');
   }

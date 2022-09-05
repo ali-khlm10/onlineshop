@@ -16,7 +16,7 @@ class CameraCategory {
   final int catId;
   final String catName;
 
-  CameraCategory(this.catId, this.catName);
+  CameraCategory({required this.catId, required this.catName});
 
   Map<String, Object> toMap() {
     return {
@@ -31,40 +31,25 @@ class Camera {
   final int catId;
   final String productId;
   final String picAddress;
-  final String kind;
-  final String dimension;
-  final String weight;
   final String color;
-  final String battery;
-  final String axbardariMomtad;
-  final String storageKind;
   final String internalStorage;
   final String resolution;
-  final String picFormat;
-  final String videoSpeed;
   final String explain;
   final String price;
   final String status;
 
-  Camera(
-      this.name,
-      this.catId,
-      this.productId,
-      this.picAddress,
-      this.kind,
-      this.dimension,
-      this.weight,
-      this.color,
-      this.battery,
-      this.axbardariMomtad,
-      this.storageKind,
-      this.internalStorage,
-      this.resolution,
-      this.picFormat,
-      this.videoSpeed,
-      this.explain,
-      this.price,
-      this.status);
+  Camera({
+    required this.name,
+    required this.catId,
+    required this.productId,
+    required this.picAddress,
+    required this.color,
+    required this.internalStorage,
+    required this.resolution,
+    required this.explain,
+    required this.price,
+    required this.status,
+  });
 
   Map<String, Object> toMap() {
     return {
@@ -72,17 +57,9 @@ class Camera {
       'catId': catId,
       'productId': productId,
       'picAddress': picAddress,
-      'kind': kind,
-      'dimension': dimension,
-      'weight': weight,
       'color': color,
-      'battery': battery,
-      'axbardariMomtad': axbardariMomtad,
-      'storageKind': storageKind,
       'internalStorage': internalStorage,
       'resolution': resolution,
-      'picFormat': picFormat,
-      'videoSpeed': videoSpeed,
       'explain': explain,
       'price': price,
       'status': status
@@ -94,7 +71,7 @@ class MobileCategory {
   final int catId;
   final String catName;
 
-  MobileCategory(this.catId, this.catName);
+  MobileCategory({required this.catId, required this.catName});
 
   Map<String, Object> toMap() {
     return {
@@ -109,40 +86,30 @@ class Mobile {
   final int catId;
   final String productId;
   final String picAddress;
-  final String brand;
-  final String scrrenDimension;
   final String weight;
   final String color;
   final String battery;
-  final String storageKind;
   final String internalStorage;
   final String frontCameraResolution;
   final String backCameraResolution;
-  final String picFormat;
-  final String videoSpeed;
   final String explain;
   final String price;
   final String status;
 
   Mobile(
-      this.name,
-      this.catId,
-      this.productId,
-      this.picAddress,
-      this.brand,
-      this.scrrenDimension,
-      this.weight,
-      this.color,
-      this.battery,
-      this.storageKind,
-      this.internalStorage,
-      this.frontCameraResolution,
-      this.backCameraResolution,
-      this.picFormat,
-      this.videoSpeed,
-      this.explain,
-      this.price,
-      this.status);
+      {required this.name,
+      required this.catId,
+      required this.productId,
+      required this.picAddress,
+      required this.weight,
+      required this.color,
+      required this.battery,
+      required this.internalStorage,
+      required this.frontCameraResolution,
+      required this.backCameraResolution,
+      required this.explain,
+      required this.price,
+      required this.status});
 
   Map<String, Object> toMap() {
     return {
@@ -150,17 +117,12 @@ class Mobile {
       'catId': catId,
       'productId': productId,
       'picAddress': picAddress,
-      'brand': brand,
-      'scrrenDimension': scrrenDimension,
       'weight': weight,
       'color': color,
       'battery': battery,
-      'storageKind': storageKind,
       'internalStorage': internalStorage,
       'frontCameraResolution': frontCameraResolution,
       'backCameraResolution': backCameraResolution,
-      'picFormat': picFormat,
-      'videoSpeed': videoSpeed,
       'explain': explain,
       'price': price,
       'status': status,
@@ -176,8 +138,13 @@ class Order {
   final String catId;
   final String status;
 
-  Order(this.customerId, this.productId, this.productName, this.catName,
-      this.catId, this.status);
+  Order(
+      {required this.customerId,
+      required this.productId,
+      required this.productName,
+      required this.catName,
+      required this.catId,
+      required this.status});
 
   Map<String, Object> toMap() {
     return {
@@ -199,8 +166,13 @@ class User {
   final String address;
   final String mail;
 
-  User(this.customerName, this.city, this.phone, this.address, this.mail,
-      this.customerId);
+  User(
+      {required this.customerName,
+      required this.city,
+      required this.phone,
+      required this.address,
+      required this.mail,
+      required this.customerId});
 
   Map<String, Object> toMap() {
     return {
