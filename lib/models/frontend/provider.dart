@@ -5,6 +5,8 @@ import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20brand/addmobilebrand.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20brand/mobilebrandsmanagement.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20brand/updatemobilebrand.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20product/addmobileproduct.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20product/mobilepruductsmanagement.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobilemanagement.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/sellmanagement.dart';
 
@@ -132,12 +134,33 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeaddbrandsmanagementbody(Size size) {
+  void changeaddmobilebrandsmanagementbody(Size size) {
     _panelItemsBody = addmobilebrand(size: size);
     notifyListeners();
   }
 
-  void changeupatebrandsmanagementbody(Size size, String str, int index) {
+  void changeupatemobilebrandsmanagementbody(Size size, String str, int index) {
+    _panelItemsBody = updatemobilebrand(
+      size: size,
+      inputforupdate: str,
+      Index: index,
+    );
+    notifyListeners();
+  }
+//////////////////////////////////////////////////////////
+
+  void changeproductmanagementbody(Size size) {
+    _panelItemsBody = productsmanagement(size: size);
+    notifyListeners();
+  }
+
+  void changeaddmobileproductmanagementbody(Size size) {
+    _panelItemsBody = addmobileproduct(size: size);
+    notifyListeners();
+  }
+
+  void changeupatemobileproductmanagementbody(
+      Size size, String str, int index) {
     _panelItemsBody = updatemobilebrand(
       size: size,
       inputforupdate: str,
