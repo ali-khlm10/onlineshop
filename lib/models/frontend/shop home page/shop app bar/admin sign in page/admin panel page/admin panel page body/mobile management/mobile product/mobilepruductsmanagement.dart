@@ -101,7 +101,7 @@ class _productsmanagementState extends State<productsmanagement> {
                               ),
                             );
                           } else {
-                            listofmobilecategory.removeAt(selectedIndex);
+                            listofproductsformobile.removeAt(selectedIndex);
                             selectedIndex = -1;
                             allcheckboxvalue.clear();
                             addvalidator();
