@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +16,10 @@ class addmobileproduct extends StatefulWidget {
 class _addmobileproductState extends State<addmobileproduct> {
   List<TextEditingController>? controllers;
   List<String>? inputstext;
+  List<String>? dropdownList;
+  String? dropdownValue;
 
+  /////////////
   void addcontrollers() {
     controllers = List.generate(
         mobiledetaillabels.length, (index) => TextEditingController());
@@ -33,6 +38,9 @@ class _addmobileproductState extends State<addmobileproduct> {
   void initState() {
     // TODO: implement initState
     addcontrollers();
+    dropdownList = List.generate(
+        list_mobile_cats.length, (index) => list_mobile_cats[index]['catName']);
+    dropdownValue = dropdownList!.first;
     super.initState();
   }
 
@@ -63,7 +71,6 @@ class _addmobileproductState extends State<addmobileproduct> {
     );
   }
 
-  String dropdownValue = listofmobilecategory.first;
   @override
   Widget build(BuildContext context) {
     return Consumer<listofcategorysubjectProvider>(
@@ -106,11 +113,9 @@ class _addmobileproductState extends State<addmobileproduct> {
                                 onChanged: (String? newvalue) {
                                   setState(() {
                                     dropdownValue = newvalue!;
-                                    print(listofmobilecategory
-                                        .indexOf(dropdownValue));
                                   });
                                 },
-                                items: listofmobilecategory
+                                items: dropdownList!
                                     .map<DropdownMenuItem<String>>(
                                         (String textvalue) {
                                   return DropdownMenuItem<String>(
@@ -159,8 +164,34 @@ class _addmobileproductState extends State<addmobileproduct> {
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       addinputstext();
+                      print(await getAllMobiles());
+                      try {
+                        await addMobile(
+                          Mobile(
+                            name: controllers![0].text,
+                            catId: list_mobile_cats[
+                                dropdownList!.indexOf(dropdownValue!)]['catId'],
+                            productId: int.parse(controllers![1].text),
+                            picAddress: controllers![2].text,
+                            weight: controllers![3].text,
+                            color: controllers![4].text,
+                            battery: controllers![5].text,
+                            internalStorage: controllers![6].text,
+                            frontCameraResolution: controllers![7].text,
+                            backCameraResolution: controllers![8].text,
+                            explain: controllers![9].text,
+                            price: controllers![10].text,
+                            stock: int.parse(controllers![11].text),
+                          ),
+                        );
+                      } catch (e) {
+                        print(e);
+                      }
+
+                      print(await getAllMobiles());
+
                       deletecontrollers();
                       provider.changeproductmanagementbody(widget.size);
 
