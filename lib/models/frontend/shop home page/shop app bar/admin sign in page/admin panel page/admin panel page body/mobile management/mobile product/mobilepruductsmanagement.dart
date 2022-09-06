@@ -120,8 +120,27 @@ class _productsmanagementState extends State<productsmanagement> {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          value.changeaddmobileproductmanagementbody(
-                              widget.size);
+                          if (list_mobile_cats.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: const SizedBox(
+                                  height: 50,
+                                  child: Center(
+                                    child: Text(
+                                      '!!لطفااز بخش مدیریت برند های موبایل یک برند جدید اضافه کنید',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                backgroundColor: Colors.red[200],
+                              ),
+                            );
+                          } else {
+                            value.changeaddmobileproductmanagementbody(
+                                widget.size);
+                          }
                         },
                         child: const Text('اضافه'),
                         style: ElevatedButton.styleFrom(

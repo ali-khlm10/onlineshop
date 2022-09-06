@@ -111,7 +111,7 @@ class _brandsmanagementState extends State<brandsmanagement> {
                           } else {
                             // listofmobilecategory.removeAt(selectedIndex);
                             print(
-                                'ghvmhvmjh${list_mobile_cats[selectedIndex]["catId"]}');
+                                'catId${list_mobile_cats[selectedIndex]["catId"]}');
                             deleteMobileCategory(
                                 list_mobile_cats[selectedIndex]['catId']);
                             list_mobile_cats = await getAllMobileCats();

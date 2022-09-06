@@ -90,8 +90,12 @@ class _updatemobilebrandState extends State<updatemobilebrand> {
                       // listofmobilecategory.remove(widget.inputforupdate);
                       // listofmobilecategory.insert(
                       //     widget.Index, mobilebrandcontroller.text);
-                      editMobileCategory(widget.Index, widget.inputforupdate);
+                      editMobileCategory(
+                          widget.Index, mobilebrandcontroller.text);
                       list_mobile_cats = await getAllMobileCats();
+                      print(widget.Index);
+                      print(widget.inputforupdate);
+
                       print(list_mobile_cats);
                       value.changebrandsmanagementbody(widget.size);
                     },
