@@ -40,20 +40,26 @@ class _productsmenuState extends State<productsmenu> {
                     i < value.getlistofcategorysubject.length;
                     i++) ...[
                   Container(
-                    // height: 30,
-                    color: Colors.green[300],
-                    margin: EdgeInsets.all(5),
-                    child: Center(
-                      child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                        child: Text(
-                          value.getlistofcategorysubject[i],
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                    margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    child: Material(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.green[300],
+                      child: InkWell(
+                        onTap: () {},
+                        borderRadius: BorderRadius.circular(5),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 5),
+                            child: Text(
+                              value.getlistofcategorysubject[i],
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
