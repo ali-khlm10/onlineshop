@@ -106,6 +106,8 @@ class _addmobileproductState extends State<addmobileproduct> {
                                 onChanged: (String? newvalue) {
                                   setState(() {
                                     dropdownValue = newvalue!;
+                                    print(listofmobilecategory
+                                        .indexOf(dropdownValue));
                                   });
                                 },
                                 items: listofmobilecategory

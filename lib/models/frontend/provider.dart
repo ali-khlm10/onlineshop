@@ -7,6 +7,7 @@ import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/a
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20brand/updatemobilebrand.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20product/addmobileproduct.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20product/mobilepruductsmanagement.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20product/updatemobileproduct.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobilemanagement.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/sellmanagement.dart';
 
@@ -163,10 +164,10 @@ class listofcategorysubjectProvider extends ChangeNotifier {
 
   void changeupatemobileproductmanagementbody(
       Size size, String str, int index) {
-    _panelItemsBody = updatemobilebrand(
+    _panelItemsBody = updatemobileproduct(
       size: size,
-      inputforupdate: str,
-      Index: index,
+      // inputforupdate: str,
+      // Index: index,
     );
     notifyListeners();
   }
