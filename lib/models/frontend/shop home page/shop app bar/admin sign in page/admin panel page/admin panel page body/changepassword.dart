@@ -99,7 +99,7 @@ class _changepassState extends State<changepass> {
             ),
             ElevatedButton(
               onPressed: () {
-                updateAdminPassword(
+                Future<bool> result = updateAdminPassword(
                   usernameController.text,
                   currentpasswordController.text,
                   newpasswordController.text,
@@ -107,7 +107,7 @@ class _changepassState extends State<changepass> {
                 usernameController.clear();
                 currentpasswordController.clear();
                 newpasswordController.clear();
-                value.afterchangepasswordbody(widget.size);
+                value.afterchangepasswordbody(widget.size, result);
               },
               child: const Center(
                 child: Text('تغییر'),

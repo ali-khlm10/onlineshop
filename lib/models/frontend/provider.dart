@@ -96,15 +96,17 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void afterchangepasswordbody(Size size) {
+  void afterchangepasswordbody(Size size, Future<bool> result) async {
     _panelItemsBody = Container(
       margin: EdgeInsets.symmetric(vertical: size.height * .2),
       padding: EdgeInsets.symmetric(horizontal: size.width * .2),
-      child: const Center(
+      child: Center(
         child: Text(
-          '. تغییر رمز با موفقیت انجام شد',
+          (await result == true)
+              ? '. تغییر رمز با موفقیت انجام شد'
+              : '. عملیات با خطا مواجه شد',
           style: TextStyle(
-            color: Colors.green,
+            color: (await result == true) ? Colors.green : Colors.red,
           ),
         ),
       ),
