@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_cat_funcs.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20brand/addmobilebrand.dart';
 import 'package:provider/provider.dart';
 
 // ignore: camel_case_types
@@ -19,7 +22,7 @@ class _brandsmanagementState extends State<brandsmanagement> {
   int selectedIndex = -1;
 
   void addvalidator() {
-    for (var i = 0; i < listofmobilecategory.length; i++) {
+    for (var i = 0; i < list_mobile_cats.length; i++) {
       allcheckboxvalue.add(false);
     }
   }
@@ -30,8 +33,8 @@ class _brandsmanagementState extends State<brandsmanagement> {
     super.initState();
   }
 
-  // Future<int> returnListofbrands() async {
-  //   List<Map<String,>> length =  await getAllMobiles().;
+  // Future<void> saveListofmobilebrands() async {
+  //   list_mobile_cats = await getAllMobileCats();
   // }
 
   @override
@@ -71,8 +74,8 @@ class _brandsmanagementState extends State<brandsmanagement> {
                           } else {
                             value.changeupatemobilebrandsmanagementbody(
                               widget.size,
-                              listofmobilecategory[selectedIndex],
-                              selectedIndex,
+                              list_mobile_cats[selectedIndex]['catName'],
+                              list_mobile_cats[selectedIndex]['catId'],
                             );
                           }
                         },
@@ -87,7 +90,7 @@ class _brandsmanagementState extends State<brandsmanagement> {
                     ),
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (selectedIndex == -1) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -106,7 +109,13 @@ class _brandsmanagementState extends State<brandsmanagement> {
                               ),
                             );
                           } else {
-                            listofmobilecategory.removeAt(selectedIndex);
+                            // listofmobilecategory.removeAt(selectedIndex);
+                            print(
+                                'ghvmhvmjh${list_mobile_cats[selectedIndex]["catId"]}');
+                            deleteMobileCategory(
+                                list_mobile_cats[selectedIndex]['catId']);
+                            list_mobile_cats = await getAllMobileCats();
+                            print(list_mobile_cats);
                             selectedIndex = -1;
                             allcheckboxvalue.clear();
                             addvalidator();
@@ -146,72 +155,69 @@ class _brandsmanagementState extends State<brandsmanagement> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // if (returnListofbrands().isEmpty) ...[
-                        //   SizedBox(
-                        //     height: widget.size.height * .4,
-                        //     child: const Center(
-                        //       child: Text('. آیتمی وجود ندارد'),
-                        //     ),
-                        //   )
-                        // ]
-                        // else ...[
-                        //   for (var i = 0;
-                        //       i < listofmobilecategory.length;
-                        //       i++) ...[
-                        //     Container(
-                        //       margin: const EdgeInsets.symmetric(vertical: 2),
-                        //       padding: const EdgeInsets.only(
-                        //           top: 5, bottom: 5, left: 5),
-                        //       decoration: BoxDecoration(
-                        //         border: Border.all(
-                        //           color: Colors.grey,
-                        //         ),
-                        //         color: (allcheckboxvalue[i])
-                        //             ? Colors.red[50]
-                        //             : Colors.blue[50],
-                        //       ),
-                        //       child: Row(
-                        //         children: [
-                        //           Expanded(
-                        //             flex: 8,
-                        //             child: Text(listofmobilecategory[i]),
-                        //           ),
-                        //           Expanded(
-                        //             flex: 1,
-                        //             child: Container(
-                        //               // color: Colors.red,
-                        //               alignment: Alignment.centerLeft,
-                        //               height: 15,
-                        //               child: Transform.scale(
-                        //                 scale: 0.75,
-                        //                 child: Checkbox(
-                        //                   onChanged: (bool? newvalue) {
-                        //                     setState(() {
-                        //                       allcheckboxvalue.clear();
-                        //                       addvalidator();
-                        //                       allcheckboxvalue[i] = newvalue!;
-                        //                       selectedIndex = allcheckboxvalue
-                        //                           .indexOf(true);
-                        //                       // ignore: avoid_print
-                        //                       print(allcheckboxvalue);
-                        //                       print(allcheckboxvalue
-                        //                           .indexOf(true));
-                        //                     });
-                        //                   },
-                        //                   value: allcheckboxvalue[i],
-                        //                   // shape: OutlineInputBorder.,
-                        //                   splashRadius: 12,
-                        //                   activeColor: Colors.red,
-                        //                   shape: const CircleBorder(),
-                        //                 ),
-                        //               ),
-                        //             ),
-                        //           ),
-                        //         ],
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ],
+                        if (list_mobile_cats.isEmpty) ...[
+                          SizedBox(
+                            height: widget.size.height * .4,
+                            child: const Center(
+                              child: Text('. آیتمی وجود ندارد'),
+                            ),
+                          ),
+                        ] else ...[
+                          for (var i = 0; i < list_mobile_cats.length; i++) ...[
+                            Container(
+                              margin: const EdgeInsets.symmetric(vertical: 2),
+                              padding: const EdgeInsets.only(
+                                  top: 5, bottom: 5, left: 5),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.grey,
+                                ),
+                                color: (allcheckboxvalue[i])
+                                    ? Colors.red[50]
+                                    : Colors.blue[50],
+                              ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 8,
+                                    child: Text(list_mobile_cats[i]['catName']),
+                                  ),
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      // color: Colors.red,
+                                      alignment: Alignment.centerLeft,
+                                      height: 15,
+                                      child: Transform.scale(
+                                        scale: 0.75,
+                                        child: Checkbox(
+                                          onChanged: (bool? newvalue) {
+                                            setState(() {
+                                              allcheckboxvalue.clear();
+                                              addvalidator();
+                                              allcheckboxvalue[i] = newvalue!;
+                                              selectedIndex = allcheckboxvalue
+                                                  .indexOf(true);
+                                              // ignore: avoid_print
+                                              print(allcheckboxvalue);
+                                              print(allcheckboxvalue
+                                                  .indexOf(true));
+                                            });
+                                          },
+                                          value: allcheckboxvalue[i],
+                                          // shape: OutlineInputBorder.,
+                                          splashRadius: 15,
+                                          activeColor: Colors.red,
+                                          shape: const CircleBorder(),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ],
                       ],
                     ),
                   ),

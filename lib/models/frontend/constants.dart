@@ -13,13 +13,17 @@ const List<String> listofCategories = [
 List<String> listofmainpagecategory = [
   '. توجه: این صفحه اصلی می باشد',
 ];
-
+//////////////////////////////////////////////////////
 List<String> listofmobilecategory = [
   'samsung',
   'apple',
   'nokia',
   'xiaomi',
 ];
+
+List list_mobile_cats = [];
+
+//////////////////////////////////////////
 
 List<String> listofhomeappliancescategory = [
   'heater',
