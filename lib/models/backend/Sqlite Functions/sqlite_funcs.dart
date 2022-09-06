@@ -86,11 +86,11 @@ _onCreate(Database db, int version) async {
     address TEXT,
     mail TEXT)""";
 
-  db.execute(adminTable);
-  db.execute(cameraTable);
-  db.execute(cameraCatTable);
-  db.execute(mobileTable);
-  db.execute(mobileCatTable);
-  db.execute(orderTable);
-  db.execute(userTable);
+  await db.execute(adminTable);
+  await db.execute(cameraTable);
+  await db.execute(cameraCatTable);
+  await db.execute(mobileTable);
+  await db.execute(mobileCatTable);
+  await db.execute(orderTable);
+  await db.execute(userTable);
 }

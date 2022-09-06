@@ -11,7 +11,7 @@ Future<void> addAdmin(String userName, String password) async {
     Database database = await openDB();
     int res = await database.insert('Admin', admin.toMap());
     print('res = $res');
-    database.close();
+    await database.close();
   } catch (e) {
     print('Error : $e');
   }
@@ -21,7 +21,7 @@ Future<List<Map<String, Object?>>> getAllAdmins() async {
   try {
     Database database = await openDB();
     List<Map<String, Object?>> data = await database.query('Admin');
-    database.close();
+    await database.close();
     return data;
   } catch (e) {
     print('Error: $e');
@@ -49,10 +49,10 @@ Future<bool> updateAdminPassword(
     String userName, String oldPassword, String newPassword) async {
   try {
     Database database = await openDB();
-    database.update('Admin', {'password': newPassword},
+    await database.update('Admin', {'password': newPassword},
         where: 'userName = ? AND password = ?',
         whereArgs: [userName, oldPassword]);
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');

@@ -9,7 +9,7 @@ Future<bool> addMobileCategory(MobileCategory mobileCategory) async {
     Database database = await openDB();
     int res = await database.insert('MobileCat', mobileCategory.toMap());
     print('res = $res');
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error : $e');
@@ -25,7 +25,7 @@ Future<bool> deleteMobileCategory(int catId) async {
       where: 'catId = ?',
       whereArgs: [catId],
     );
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -54,7 +54,7 @@ Future<List<Map<String, Object?>>> getAllMobileCats() async {
   try {
     Database database = await openDB();
     List<Map<String, Object?>> data = await database.query('MobileCat');
-    database.close();
+    await database.close();
     return data;
   } catch (e) {
     print('Error: $e');

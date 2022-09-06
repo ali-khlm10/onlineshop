@@ -9,7 +9,7 @@ Future<bool> addOrder(Order order) async {
     Database database = await openDB();
     int res = await database.insert('Orders', order.toMap());
     print('res = $res');
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -20,12 +20,12 @@ Future<bool> addOrder(Order order) async {
 Future<bool> deleteOrder(int orderId) async {
   try {
     Database database = await openDB();
-    database.delete(
+    await database.delete(
       'Orders',
       where: 'orderId = ?',
       whereArgs: [orderId],
     );
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -36,11 +36,11 @@ Future<bool> deleteOrder(int orderId) async {
 Future<bool> editOrder(Order order) async {
   try {
     Database database = await openDB();
-    database.update(
+    await database.update(
       'Orders',
       order.toMap(),
     );
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -52,7 +52,7 @@ Future<List<Map<String, Object?>>> getAllOrders() async {
   try {
     Database database = await openDB();
     List<Map<String, Object?>> data = await database.query('Orders');
-    database.close();
+    await database.close();
     return data;
   } catch (e) {
     print('Error: $e');

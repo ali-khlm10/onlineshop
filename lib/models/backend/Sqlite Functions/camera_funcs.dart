@@ -9,7 +9,7 @@ Future<bool> addCamera(Camera camera) async {
     Database database = await openDB();
     int res = await database.insert('Camera', camera.toMap());
     print('res = $res');
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error : $e');
@@ -20,12 +20,12 @@ Future<bool> addCamera(Camera camera) async {
 Future<bool> deleteCamera(int productId) async {
   try {
     Database database = await openDB();
-    database.delete(
+    await database.delete(
       'Camera',
       where: 'productId = ?',
       whereArgs: [productId],
     );
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -36,11 +36,11 @@ Future<bool> deleteCamera(int productId) async {
 Future<bool> editCamera(Camera camera) async {
   try {
     Database database = await openDB();
-    database.update(
+    await database.update(
       'Camera',
       camera.toMap(),
     );
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -52,7 +52,7 @@ Future<List<Map<String, Object?>>> getAllCamera() async {
   try {
     Database database = await openDB();
     List<Map<String, Object?>> data = await database.query('Camera');
-    database.close();
+    await database.close();
     return data;
   } catch (e) {
     print('Error: $e');

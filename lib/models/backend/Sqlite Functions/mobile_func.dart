@@ -9,7 +9,7 @@ Future<bool> addMobile(Mobile mobile) async {
     Database database = await openDB();
     int res = await database.insert('Mobile', mobile.toMap());
     print('res = $res');
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -25,7 +25,7 @@ Future<bool> deleteMobile(int productId) async {
       where: 'productId = ?',
       whereArgs: [productId],
     );
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -40,7 +40,7 @@ Future<bool> editMobile(Mobile mobile) async {
       'Mobile',
       mobile.toMap(),
     );
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
@@ -52,7 +52,7 @@ Future<List<Map<String, Object?>>> getAllMobiles() async {
   try {
     Database database = await openDB();
     List<Map<String, Object?>> data = await database.query('Mobile');
-    database.close();
+    await database.close();
     return data;
   } catch (e) {
     print('Error: $e');
