@@ -92,6 +92,9 @@ class _updatemobilebrandState extends State<updatemobilebrand> {
                       //     widget.Index, mobilebrandcontroller.text);
                       editMobileCategory(widget.Index, widget.inputforupdate);
                       list_mobile_cats = await getAllMobileCats();
+                      print(widget.Index);
+                      print(widget.inputforupdate);
+
                       print(list_mobile_cats);
                       value.changebrandsmanagementbody(widget.size);
                     },
