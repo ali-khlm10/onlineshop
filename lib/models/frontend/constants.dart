@@ -21,6 +21,10 @@ List<String> listofmobilecategory = [
   'xiaomi',
 ];
 
+List list_mobile_cats = [];
+
+//////////////////////////////////////////
+
 List<String> listofhomeappliancescategory = [
   'heater',
   'Refrigerator',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_cat_funcs.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -85,10 +86,13 @@ class _updatemobilebrandState extends State<updatemobilebrand> {
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {
-                      listofmobilecategory.remove(widget.inputforupdate);
-                      listofmobilecategory.insert(
-                          widget.Index, mobilebrandcontroller.text);
+                    onPressed: () async {
+                      // listofmobilecategory.remove(widget.inputforupdate);
+                      // listofmobilecategory.insert(
+                      //     widget.Index, mobilebrandcontroller.text);
+                      editMobileCategory(widget.Index, widget.inputforupdate);
+                      list_mobile_cats = await getAllMobileCats();
+                      print(list_mobile_cats);
                       value.changebrandsmanagementbody(widget.size);
                     },
                     style: ElevatedButton.styleFrom(

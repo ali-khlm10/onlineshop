@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_cat_funcs.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -69,8 +71,15 @@ class _addmobilebrandState extends State<addmobilebrand> {
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {
-                      listofmobilecategory.add(mobilebrandcontroller.text);
+                    onPressed: () async {
+                      await addMobileCategory(MobileCategory(
+                          catId: (list_mobile_cats.isEmpty)
+                              ? 0
+                              : list_mobile_cats.last['catId'] + 1,
+                          catName: mobilebrandcontroller.text));
+                      list_mobile_cats = await getAllMobileCats();
+                      print(list_mobile_cats);
+                      // list_mobile_cats.add(mobilebrandcontroller.text);
                       value.changebrandsmanagementbody(widget.size);
                     },
                     style: ElevatedButton.styleFrom(
