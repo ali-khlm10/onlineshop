@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/adminPanel.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,6 @@ class adminSignin extends StatefulWidget {
 class _adminSigninState extends State<adminSignin> {
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  String errortext = '';
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _adminSigninState extends State<adminSignin> {
                     left: widget.size.width * .15,
                     right: widget.size.width * .15,
                     top: widget.size.height * .18,
-                    bottom: widget.size.height * .09,
+                    bottom: widget.size.height * .18,
                   ),
                   // width: 350,
                   // height: 380,
@@ -107,7 +107,6 @@ class _adminSigninState extends State<adminSignin> {
                           //     passwordController.text)) {
                           //   usernameController.clear();
                           //   passwordController.clear();
-                          //   errortext = '';
 
                           Navigator.push(
                             context,
@@ -119,10 +118,25 @@ class _adminSigninState extends State<adminSignin> {
                           // } else {
                           //   usernameController.clear();
                           //   passwordController.clear();
-
-                          //   errortext = '!! نام کاربری یا رمز عبور اشتباه است';
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     SnackBar(
+                          //       content: const SizedBox(
+                          //         height: 50,
+                          //         child: Center(
+                          //           child: Text(
+                          //             '!! نام کاربری یا رمز عبور اشتباه است',
+                          //             style: TextStyle(
+                          //               color: Colors.white,
+                          //             ),
+                          //           ),
+                          //         ),
+                          //       ),
+                          //       backgroundColor: Colors.red[200],
+                          //     ),
+                          //   );
+                          //   // errortext = '!! نام کاربری یا رمز عبور اشتباه است';
                           // }
-                          // setState(() {});
+                          setState(() {});
                         },
                         child: const Center(
                           child: Text('ورود'),
@@ -133,12 +147,6 @@ class _adminSigninState extends State<adminSignin> {
                       )
                     ],
                   ),
-                ),
-              ),
-              Text(
-                errortext,
-                style: const TextStyle(
-                  color: Colors.red,
                 ),
               ),
               const SizedBox(
