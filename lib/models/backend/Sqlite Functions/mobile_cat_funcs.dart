@@ -20,7 +20,7 @@ Future<bool> addMobileCategory(MobileCategory mobileCategory) async {
 Future<bool> deleteMobileCategory(int catId) async {
   try {
     Database database = await openDB();
-    database.delete(
+    await database.delete(
       'MobileCat',
       where: 'catId = ?',
       whereArgs: [catId],
@@ -36,13 +36,13 @@ Future<bool> deleteMobileCategory(int catId) async {
 Future<bool> editMobileCategory(int catId, String newValue) async {
   try {
     Database database = await openDB();
-    database.update(
+    await database.update(
       'MobileCat',
       {'catName': newValue},
       where: 'catId = ?',
       whereArgs: [catId],
     );
-    database.close();
+    await database.close();
     return true;
   } catch (e) {
     print('Error: $e');
