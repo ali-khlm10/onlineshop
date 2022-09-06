@@ -3,15 +3,15 @@ import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
 
-class addmobileproduct extends StatefulWidget {
-  const addmobileproduct({Key? key, required this.size}) : super(key: key);
+class updatemobileproduct extends StatefulWidget {
+  const updatemobileproduct({Key? key, required this.size}) : super(key: key);
   final Size size;
 
   @override
-  State<addmobileproduct> createState() => _addmobileproductState();
+  State<updatemobileproduct> createState() => _updatemobileproductState();
 }
 
-class _addmobileproductState extends State<addmobileproduct> {
+class _updatemobileproductState extends State<updatemobileproduct> {
   List<TextEditingController>? controllers;
   List<String>? inputstext;
 
@@ -106,8 +106,6 @@ class _addmobileproductState extends State<addmobileproduct> {
                                 onChanged: (String? newvalue) {
                                   setState(() {
                                     dropdownValue = newvalue!;
-                                    print(listofmobilecategory
-                                        .indexOf(dropdownValue));
                                   });
                                 },
                                 items: listofmobilecategory

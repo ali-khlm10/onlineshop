@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +29,10 @@ class _brandsmanagementState extends State<brandsmanagement> {
     addvalidator();
     super.initState();
   }
+
+  // Future<int> returnListofbrands() async {
+  //   List<Map<String,>> length =  await getAllMobiles().;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -141,71 +146,72 @@ class _brandsmanagementState extends State<brandsmanagement> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        if (listofmobilecategory.isEmpty) ...[
-                          SizedBox(
-                            height: widget.size.height * .4,
-                            child: const Center(
-                              child: Text('. آیتمی وجود ندارد'),
-                            ),
-                          )
-                        ] else ...[
-                          for (var i = 0;
-                              i < listofmobilecategory.length;
-                              i++) ...[
-                            Container(
-                              margin: const EdgeInsets.symmetric(vertical: 2),
-                              padding: const EdgeInsets.only(
-                                  top: 5, bottom: 5, left: 5),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.grey,
-                                ),
-                                color: (allcheckboxvalue[i])
-                                    ? Colors.red[50]
-                                    : Colors.blue[50],
-                              ),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 8,
-                                    child: Text(listofmobilecategory[i]),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(
-                                      // color: Colors.red,
-                                      alignment: Alignment.centerLeft,
-                                      height: 15,
-                                      child: Transform.scale(
-                                        scale: 0.75,
-                                        child: Checkbox(
-                                          onChanged: (bool? newvalue) {
-                                            setState(() {
-                                              allcheckboxvalue.clear();
-                                              addvalidator();
-                                              allcheckboxvalue[i] = newvalue!;
-                                              selectedIndex = allcheckboxvalue
-                                                  .indexOf(true);
-                                              // ignore: avoid_print
-                                              print(allcheckboxvalue);
-                                              print(allcheckboxvalue
-                                                  .indexOf(true));
-                                            });
-                                          },
-                                          value: allcheckboxvalue[i],
-                                          // shape: OutlineInputBorder.,
-                                          splashRadius: 12,
-                                          activeColor: Colors.red,
-                                          shape: const CircleBorder(),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ],
+                        // if (returnListofbrands().isEmpty) ...[
+                        //   SizedBox(
+                        //     height: widget.size.height * .4,
+                        //     child: const Center(
+                        //       child: Text('. آیتمی وجود ندارد'),
+                        //     ),
+                        //   )
+                        // ]
+                        // else ...[
+                        //   for (var i = 0;
+                        //       i < listofmobilecategory.length;
+                        //       i++) ...[
+                        //     Container(
+                        //       margin: const EdgeInsets.symmetric(vertical: 2),
+                        //       padding: const EdgeInsets.only(
+                        //           top: 5, bottom: 5, left: 5),
+                        //       decoration: BoxDecoration(
+                        //         border: Border.all(
+                        //           color: Colors.grey,
+                        //         ),
+                        //         color: (allcheckboxvalue[i])
+                        //             ? Colors.red[50]
+                        //             : Colors.blue[50],
+                        //       ),
+                        //       child: Row(
+                        //         children: [
+                        //           Expanded(
+                        //             flex: 8,
+                        //             child: Text(listofmobilecategory[i]),
+                        //           ),
+                        //           Expanded(
+                        //             flex: 1,
+                        //             child: Container(
+                        //               // color: Colors.red,
+                        //               alignment: Alignment.centerLeft,
+                        //               height: 15,
+                        //               child: Transform.scale(
+                        //                 scale: 0.75,
+                        //                 child: Checkbox(
+                        //                   onChanged: (bool? newvalue) {
+                        //                     setState(() {
+                        //                       allcheckboxvalue.clear();
+                        //                       addvalidator();
+                        //                       allcheckboxvalue[i] = newvalue!;
+                        //                       selectedIndex = allcheckboxvalue
+                        //                           .indexOf(true);
+                        //                       // ignore: avoid_print
+                        //                       print(allcheckboxvalue);
+                        //                       print(allcheckboxvalue
+                        //                           .indexOf(true));
+                        //                     });
+                        //                   },
+                        //                   value: allcheckboxvalue[i],
+                        //                   // shape: OutlineInputBorder.,
+                        //                   splashRadius: 12,
+                        //                   activeColor: Colors.red,
+                        //                   shape: const CircleBorder(),
+                        //                 ),
+                        //               ),
+                        //             ),
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ],
                       ],
                     ),
                   ),

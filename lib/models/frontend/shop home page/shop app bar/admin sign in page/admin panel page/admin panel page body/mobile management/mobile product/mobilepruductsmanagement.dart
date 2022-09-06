@@ -71,10 +71,10 @@ class _productsmanagementState extends State<productsmanagement> {
                             );
                           }
                         },
-                        child: const Text('تغییر'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.yellow,
                         ),
+                        child: const Text('تغییر'),
                       ),
                     ),
                     const SizedBox(
@@ -101,7 +101,7 @@ class _productsmanagementState extends State<productsmanagement> {
                               ),
                             );
                           } else {
-                            listofmobilecategory.removeAt(selectedIndex);
+                            listofproductsformobile.removeAt(selectedIndex);
                             selectedIndex = -1;
                             allcheckboxvalue.clear();
                             addvalidator();
