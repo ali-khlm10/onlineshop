@@ -61,3 +61,18 @@ Future<List<Map<String, Object?>>> getAllMobileCats() async {
     return [];
   }
 }
+
+Future<MobileCategory> getMobileCatRow(int catId) async {
+  try {
+    Database database = await openDB();
+    List<Map<String, Object?>> data = await database
+        .query('MobileCat', where: 'catId = ?', whereArgs: [catId]);
+    database.close();
+    return MobileCategory(
+        catId: int.parse(data[0]['catId'].toString()),
+        catName: data[0]['catName'].toString());
+  } catch (e) {
+    print('Error: $e');
+    return MobileCategory(catId: 0, catName: 'Error');
+  }
+}
