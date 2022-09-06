@@ -23,14 +23,14 @@ class _cameramanagementState extends State<cameramanagement> {
         children: [
           ElevatedButton(
             onPressed: () {},
-            child: Text('اضافه کردن برند برای دوربین'),
+            child: Text('مدیریت برندهای دوربین'),
           ),
           SizedBox(
             height: 10,
           ),
           ElevatedButton(
             onPressed: () {},
-            child: Text('اضافه کردن محصول برای یک برند دوربین'),
+            child: Text('مدیریت محصول برای یک برند دوربین'),
           ),
         ],
       ),
