@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/Cart.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/adminsignin.dart';
 import 'package:provider/provider.dart';
 //
@@ -105,7 +106,12 @@ class _ShopAppBarState extends State<ShopAppBar> {
                     flex: 1,
                     child: IconButton(
                       onPressed: () {
-                        print('fhcgv');
+                        // Cart(context, widget.size);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Carts(size: widget.size),
+                            ));
                       },
                       icon: const Icon(Icons.shopping_cart),
                       color: Colors.white,
