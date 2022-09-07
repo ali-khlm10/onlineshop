@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/Cart.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/adminsignin.dart';
+import 'package:provider/provider.dart';
 //
 
 PreferredSizeWidget Appbar(BuildContext context, Size size) {
@@ -86,66 +89,74 @@ class _ShopAppBarState extends State<ShopAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      height: widget.size.height * .13,
-      color: Colors.teal[800],
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _Expanded(
-            flex: 4,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _Expanded(
-                  flex: 1,
-                  child: IconButton(
-                    onPressed: () {
-                      print('fhcgv');
-                    },
-                    icon: const Icon(Icons.shopping_cart),
+    return Consumer<listofcategorysubjectProvider>(
+      builder: (context, value, child) => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: widget.size.height * .13,
+        color: Colors.teal[800],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _Expanded(
+              flex: 4,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _Expanded(
+                    flex: 1,
+                    child: IconButton(
+                      onPressed: () {
+                        // Cart(context, widget.size);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Carts(size: widget.size),
+                            ));
+                      },
+                      icon: const Icon(Icons.shopping_cart),
+                      color: Colors.white,
+                    ),
+                  ),
+                  _Expanded(
+                    flex: 3,
+                    child: TextButton(
+                      onPressed: () {
+                        value.listofmainpagesubjects();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  adminSignin(size: widget.size),
+                            ));
+                      },
+                      child: Text(
+                        'ورود مدیران',
+                        style: TextStyle(
+                            fontSize: 17,
+                            color: Colors.blue[300],
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            _Expanded(
+              flex: 7,
+              child: Container(
+                alignment: Alignment.centerRight,
+                child: const Text(
+                  'فروشگاه اینترنتی',
+                  style: TextStyle(
+                    fontSize: 20,
                     color: Colors.white,
                   ),
                 ),
-                _Expanded(
-                  flex: 3,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                adminSignin(size: widget.size),
-                          ));
-                    },
-                    child: Text(
-                      'ورود مدیران',
-                      style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.blue[300],
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          _Expanded(
-            flex: 7,
-            child: Container(
-              alignment: Alignment.centerRight,
-              child: const Text(
-                'فروشگاه اینترنتی',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

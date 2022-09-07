@@ -45,7 +45,11 @@ class _productsmenuState extends State<productsmenu> {
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.green[300],
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          print(value.getmenuname);
+                          print(value.getlistofcategorysubject);
+                          print(i);
+                        },
                         borderRadius: BorderRadius.circular(5),
                         child: Center(
                           child: Padding(

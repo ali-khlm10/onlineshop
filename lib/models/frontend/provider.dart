@@ -49,10 +49,8 @@ class listofcategorysubjectProvider extends ChangeNotifier {
   }
 
   void listofmobilesubjects() {
-    _listofcategorysubject = listofmobilecategory;
-    // _listofcategorysubject = list_mobile_cats.forEach((element) {
-    //   list_mobile_cats[element]['catName'];
-    // });
+    _listofcategorysubject = List.generate(
+        list_mobile_cats.length, (index) => list_mobile_cats[index]['catName']);
     _menuName = listofCategories[1];
     notifyListeners();
   }
@@ -165,11 +163,9 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeupatemobileproductmanagementbody(
-      Size size, String str, int index) {
+  void changeupatemobileproductmanagementbody(Size size, int index) {
     _panelItemsBody = updatemobileproduct(
       size: size,
-      // inputforupdate: str,
       Index: index,
     );
     notifyListeners();
@@ -177,4 +173,17 @@ class listofcategorysubjectProvider extends ChangeNotifier {
 
   //////////////////////////////////////////////////////
 
+}
+
+class CartProvider extends ChangeNotifier {
+  List _cartList = [];
+
+  List get getCartsList {
+    return _cartList;
+  }
+
+  void Carts() {
+    _cartList = CartList;
+    notifyListeners();
+  }
 }

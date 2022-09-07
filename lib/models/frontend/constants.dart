@@ -11,7 +11,8 @@ const List<String> listofCategories = [
 ];
 
 List<String> listofmainpagecategory = [
-  '. توجه: این صفحه اصلی می باشد',
+  'سبد خرید خود را پر کنید',
+  'سبد شما',
 ];
 //////////////////////////////////////////////////////
 List<String> listofmobilecategory = [
@@ -79,4 +80,16 @@ List<String> mobiledetaillabels = [
   'توضیحات',
   'قیمت',
   'تعداد',
+];
+////////////////////////////////////////////
+
+List CartList = [
+  {
+    'product': 'apple',
+    'price': '35000',
+  },
+  {
+    'product': 'lg',
+    'price': '40000',
+  },
 ];
