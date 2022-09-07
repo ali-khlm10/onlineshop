@@ -37,6 +37,7 @@ _onCreate(Database db, int version) async {
     CREATE TABLE IF NOT EXISTS Camera(
     name TEXT,
     catId INTEGER,
+    catName TEXT,
     productId INTEGER PRIMARY KEY,
     PicAddress TEXT,
     color TEXT,
@@ -56,6 +57,7 @@ _onCreate(Database db, int version) async {
     CREATE TABLE IF NOT EXISTS Mobile(
     name TEXT,
     catId INTEGER,
+    catName TEXT,
     productId INTEGER PRIMARY KEY,
     picAddress TEXT,
     weight TEXT,

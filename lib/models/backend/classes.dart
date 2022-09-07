@@ -29,6 +29,7 @@ class CameraCategory {
 class Camera {
   final String name;
   final int catId;
+  final String catName;
   final int productId;
   final String picAddress;
   final String color;
@@ -39,6 +40,7 @@ class Camera {
   final int stock;
 
   Camera({
+    required this.catName,
     required this.name,
     required this.catId,
     required this.productId,
@@ -84,6 +86,7 @@ class MobileCategory {
 class Mobile {
   final String name;
   final int catId;
+  final String catName;
   final int productId;
   final String picAddress;
   final String weight;
@@ -98,6 +101,7 @@ class Mobile {
 
   Mobile(
       {required this.name,
+      required this.catName,
       required this.catId,
       required this.productId,
       required this.picAddress,
