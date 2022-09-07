@@ -65,7 +65,8 @@ Future<List<Map<String, Object?>>> getBrandMobile(String brand) async {
     Database database = await openDB();
     List<Map<String, Object?>> data = await database.query(
       'Mobile',
-      where: '',
+      where: 'catName = ?',
+      whereArgs: [brand],
     );
     database.close();
     return data;
