@@ -119,6 +119,7 @@ class Mobile {
     return {
       'name': name,
       'catId': catId,
+      'catName': catName,
       'productId': productId,
       'picAddress': picAddress,
       'weight': weight,

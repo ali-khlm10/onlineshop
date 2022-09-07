@@ -37,6 +37,7 @@ class _mobilemanagementState extends State<mobilemanagement> {
             ElevatedButton(
               onPressed: () {
                 value.changeproductmanagementbody(widget.size);
+                print(list_of_products_for_mobile);
               },
               child: Text('مدیریت محصول برای یک برند موبایل'),
             ),

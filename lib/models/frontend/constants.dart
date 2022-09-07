@@ -56,7 +56,7 @@ List<Map<String, dynamic>> listofproductsformobile = [
   // },
 ];
 
-List<Map<String, dynamic>> list_of_products_for_mobile = [];
+List list_of_products_for_mobile = [];
 
 ////////////////////////////////////////////////////////////////
 List<String> adminpanelcategory = [

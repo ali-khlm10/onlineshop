@@ -84,6 +84,8 @@ class _productsmanagementState extends State<productsmanagement> {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () async {
+                          deleteMobile(10);
+
                           if (selectedIndex == -1) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -102,9 +104,12 @@ class _productsmanagementState extends State<productsmanagement> {
                               ),
                             );
                           } else {
-                            deleteMobile(
-                                list_of_products_for_mobile[selectedIndex]
-                                    ['productId']);
+                            // deleteMobile(
+                            //     list_of_products_for_mobile[selectedIndex]
+                            //         ['productId']);
+                            deleteMobile(100);
+                            print(list_of_products_for_mobile[selectedIndex]
+                                ['productId']);
 
                             list_of_products_for_mobile = await getAllMobiles();
                             print(list_of_products_for_mobile);
@@ -245,17 +250,19 @@ class _productsmanagementState extends State<productsmanagement> {
                                     flex: 8,
                                     child: Container(
                                       alignment: Alignment.center,
-                                      child: Text(list_mobile_cats[
-                                          list_of_products_for_mobile[i]
-                                              ['catId']]['catName']),
+                                      child: Text(list_of_products_for_mobile[i]
+                                          ['name']),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 8,
                                     child: Container(
                                       alignment: Alignment.center,
-                                      child: Text(list_of_products_for_mobile[i]
-                                          ['name']),
+                                      child: Text(
+                                        list_mobile_cats[
+                                            list_of_products_for_mobile[i]
+                                                ['catId']]['catName'],
+                                      ),
                                     ),
                                   ),
                                   Expanded(

@@ -172,6 +172,8 @@ class _addmobileproductState extends State<addmobileproduct> {
                             name: controllers![0].text,
                             catId: list_mobile_cats[
                                 dropdownList!.indexOf(dropdownValue!)]['catId'],
+                            catName: list_mobile_cats[dropdownList!
+                                .indexOf(dropdownValue!)]['catName'],
                             productId: int.parse(controllers![1].text),
                             picAddress: controllers![2].text,
                             weight: controllers![3].text,
@@ -189,6 +191,7 @@ class _addmobileproductState extends State<addmobileproduct> {
                         print('Eroordatabase : $e');
                       }
                       list_of_products_for_mobile = await getAllMobiles();
+
                       // list_of_products_for_mobile.forEach((element) {
                       //   print(element['name']);
                       // });
