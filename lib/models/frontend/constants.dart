@@ -11,7 +11,7 @@ const List<String> listofCategories = [
 ];
 
 List<String> listofmainpagecategory = [
-  '. توجه: این صفحه اصلی می باشد',
+  'سبد خرید خود را پر کنید',
 ];
 //////////////////////////////////////////////////////
 List<String> listofmobilecategory = [
