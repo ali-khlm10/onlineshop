@@ -50,6 +50,9 @@ class listofcategorysubjectProvider extends ChangeNotifier {
 
   void listofmobilesubjects() {
     _listofcategorysubject = listofmobilecategory;
+    // _listofcategorysubject = list_mobile_cats.forEach((element) {
+    //   list_mobile_cats[element]['catName'];
+    // });
     _menuName = listofCategories[1];
     notifyListeners();
   }
@@ -173,4 +176,5 @@ class listofcategorysubjectProvider extends ChangeNotifier {
   }
 
   //////////////////////////////////////////////////////
+
 }
