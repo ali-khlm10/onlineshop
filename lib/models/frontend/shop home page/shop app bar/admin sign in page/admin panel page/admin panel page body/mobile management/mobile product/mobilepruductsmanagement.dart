@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class _productsmanagementState extends State<productsmanagement> {
   int selectedIndex = -1;
 
   void addvalidator() {
-    for (var i = 0; i < listofproductsformobile.length; i++) {
+    for (var i = 0; i < list_of_products_for_mobile.length; i++) {
       allcheckboxvalue.add(false);
     }
   }
@@ -82,7 +83,7 @@ class _productsmanagementState extends State<productsmanagement> {
                     ),
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (selectedIndex == -1) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -101,7 +102,13 @@ class _productsmanagementState extends State<productsmanagement> {
                               ),
                             );
                           } else {
-                            listofproductsformobile.removeAt(selectedIndex);
+                            deleteMobile(
+                                list_of_products_for_mobile[selectedIndex]
+                                    ['productId']);
+
+                            list_of_products_for_mobile = await getAllMobiles();
+                            print(list_of_products_for_mobile);
+                            // listofproductsformobile.removeAt(selectedIndex);
                             selectedIndex = -1;
                             allcheckboxvalue.clear();
                             addvalidator();
@@ -209,7 +216,7 @@ class _productsmanagementState extends State<productsmanagement> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        if (listofproductsformobile.isEmpty) ...[
+                        if (list_of_products_for_mobile.isEmpty) ...[
                           SizedBox(
                             height: widget.size.height * .4,
                             child: const Center(
@@ -218,7 +225,7 @@ class _productsmanagementState extends State<productsmanagement> {
                           )
                         ] else ...[
                           for (var i = 0;
-                              i < listofproductsformobile.length;
+                              i < list_of_products_for_mobile.length;
                               i++) ...[
                             Container(
                               margin: const EdgeInsets.symmetric(vertical: 2),
@@ -236,19 +243,26 @@ class _productsmanagementState extends State<productsmanagement> {
                                 children: [
                                   Expanded(
                                     flex: 8,
-                                    child: Text(listofproductsformobile[i]
-                                        ['mobilebrand']),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      child: Text(list_mobile_cats[
+                                          list_of_products_for_mobile[i]
+                                              ['catId']]['catName']),
+                                    ),
                                   ),
                                   Expanded(
                                     flex: 8,
-                                    child: Text(listofproductsformobile[i]
-                                        ['mobileproduct']),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      child: Text(list_of_products_for_mobile[i]
+                                          ['name']),
+                                    ),
                                   ),
                                   Expanded(
-                                    flex: 2,
+                                    flex: 4,
                                     child: Container(
                                       // color: Colors.red,
-                                      alignment: Alignment.centerLeft,
+                                      alignment: Alignment.center,
                                       height: 15,
                                       child: Transform.scale(
                                         scale: 0.75,

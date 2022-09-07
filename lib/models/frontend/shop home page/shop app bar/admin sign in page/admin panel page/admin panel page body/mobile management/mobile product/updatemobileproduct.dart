@@ -4,8 +4,10 @@ import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
 
 class updatemobileproduct extends StatefulWidget {
-  const updatemobileproduct({Key? key, required this.size}) : super(key: key);
+  const updatemobileproduct({Key? key, required this.size, required this.Index})
+      : super(key: key);
   final Size size;
+  final int Index;
 
   @override
   State<updatemobileproduct> createState() => _updatemobileproductState();
@@ -29,10 +31,32 @@ class _updatemobileproductState extends State<updatemobileproduct> {
         mobiledetaillabels.length, (index) => controllers![index].text);
   }
 
+  void initializeInputs() {
+    controllers![0].text = list_of_products_for_mobile[widget.Index]['name'];
+    controllers![1].text =
+        list_of_products_for_mobile[widget.Index]['productId'].toString();
+    controllers![2].text =
+        list_of_products_for_mobile[widget.Index]['picAddress'];
+    controllers![3].text = list_of_products_for_mobile[widget.Index]['weight'];
+    controllers![4].text = list_of_products_for_mobile[widget.Index]['color'];
+    controllers![5].text = list_of_products_for_mobile[widget.Index]['battery'];
+    controllers![6].text =
+        list_of_products_for_mobile[widget.Index]['internalStorage'];
+    controllers![7].text =
+        list_of_products_for_mobile[widget.Index]['frontCameraResolution'];
+    controllers![8].text =
+        list_of_products_for_mobile[widget.Index]['backCameraResolution'];
+    controllers![9].text = list_of_products_for_mobile[widget.Index]['explain'];
+    controllers![10].text = list_of_products_for_mobile[widget.Index]['price'];
+    controllers![11].text =
+        list_of_products_for_mobile[widget.Index]['stock'].toString();
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     addcontrollers();
+    initializeInputs();
     super.initState();
   }
 

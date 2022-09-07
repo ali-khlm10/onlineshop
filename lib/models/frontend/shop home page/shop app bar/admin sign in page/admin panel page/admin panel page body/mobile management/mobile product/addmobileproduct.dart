@@ -166,7 +166,6 @@ class _addmobileproductState extends State<addmobileproduct> {
                   child: ElevatedButton(
                     onPressed: () async {
                       addinputstext();
-                      print(await getAllMobiles());
                       try {
                         await addMobile(
                           Mobile(
@@ -187,11 +186,12 @@ class _addmobileproductState extends State<addmobileproduct> {
                           ),
                         );
                       } catch (e) {
-                        print(e);
+                        print('Eroordatabase : $e');
                       }
-
-                      print(await getAllMobiles());
-
+                      list_of_products_for_mobile = await getAllMobiles();
+                      // list_of_products_for_mobile.forEach((element) {
+                      //   print(element['name']);
+                      // });
                       deletecontrollers();
                       provider.changeproductmanagementbody(widget.size);
 

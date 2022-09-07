@@ -170,7 +170,7 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     _panelItemsBody = updatemobileproduct(
       size: size,
       // inputforupdate: str,
-      // Index: index,
+      Index: index,
     );
     notifyListeners();
   }

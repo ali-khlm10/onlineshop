@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/homepage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'models/backend/Sqlite Functions/mobile_cat_funcs.dart';
@@ -22,7 +23,7 @@ Future<void> main() async {
     print('ErrorS1: $e');
   }
   list_mobile_cats = await getAllMobileCats();
-
+  list_of_products_for_mobile = await getAllMobiles();
   runApp(const MyApp());
 }
 

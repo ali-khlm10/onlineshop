@@ -50,19 +50,14 @@ List<String> listofcomputercategory = [
 
 ////////////////////////////////////////////////////////////////
 List<Map<String, dynamic>> listofproductsformobile = [
-  {
-    'mobilebrand': 'nokia',
-    'mobileproduct': 's500',
-  },
-  {
-    'mobilebrand': 'nokia',
-    'mobileproduct': 's500',
-  },
-  {
-    'mobilebrand': 'nokia',
-    'mobileproduct': 's500',
-  },
+  // {
+  //   'mobilebrand': 'nokia',
+  //   'mobileproduct': 's500',
+  // },
 ];
+
+List<Map<String, dynamic>> list_of_products_for_mobile = [];
+
 ////////////////////////////////////////////////////////////////
 List<String> adminpanelcategory = [
   'موبایل',
@@ -83,5 +78,5 @@ List<String> mobiledetaillabels = [
   'وضوح دوربین عقب',
   'توضیحات',
   'قیمت',
-  'وضعیت',
+  'تعداد',
 ];
