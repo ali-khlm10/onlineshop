@@ -163,11 +163,9 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeupatemobileproductmanagementbody(
-      Size size, String str, int index) {
+  void changeupatemobileproductmanagementbody(Size size, int index) {
     _panelItemsBody = updatemobileproduct(
       size: size,
-      // inputforupdate: str,
       Index: index,
     );
     notifyListeners();

@@ -67,7 +67,6 @@ class _productsmanagementState extends State<productsmanagement> {
                           } else {
                             value.changeupatemobileproductmanagementbody(
                               widget.size,
-                              listofmobilecategory[selectedIndex],
                               selectedIndex,
                             );
                           }
@@ -104,16 +103,11 @@ class _productsmanagementState extends State<productsmanagement> {
                               ),
                             );
                           } else {
-                            // deleteMobile(
-                            //     list_of_products_for_mobile[selectedIndex]
-                            //         ['productId']);
-                            deleteMobile(100);
-                            print(list_of_products_for_mobile[selectedIndex]
-                                ['productId']);
+                            await deleteMobile(
+                                list_of_products_for_mobile[selectedIndex]
+                                    ['productId']);
 
                             list_of_products_for_mobile = await getAllMobiles();
-                            print(list_of_products_for_mobile);
-                            // listofproductsformobile.removeAt(selectedIndex);
                             selectedIndex = -1;
                             allcheckboxvalue.clear();
                             addvalidator();

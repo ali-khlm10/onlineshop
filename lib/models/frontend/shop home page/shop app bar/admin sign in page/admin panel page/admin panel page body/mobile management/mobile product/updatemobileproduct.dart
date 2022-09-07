@@ -191,6 +191,7 @@ class _updatemobileproductState extends State<updatemobileproduct> {
                   child: ElevatedButton(
                     onPressed: () async {
                       addinputstext();
+                      print(controllers![0].text);
                       await editMobile(
                         Mobile(
                           name: controllers![0].text,
@@ -211,10 +212,10 @@ class _updatemobileproductState extends State<updatemobileproduct> {
                           stock: int.parse(controllers![11].text),
                         ),
                       );
-                      print(list_of_products_for_mobile);
-                      print('////////////////////////////////////');
+                      // print(list_of_products_for_mobile);
+                      // print('////////////////////////////////////');
                       list_of_products_for_mobile = await getAllMobiles();
-                      print(list_of_products_for_mobile);
+                      // print(list_of_products_for_mobile);
                       deletecontrollers();
                       provider.changeproductmanagementbody(widget.size);
 
