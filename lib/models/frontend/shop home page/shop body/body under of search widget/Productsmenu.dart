@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
+import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/body%20under%20of%20search%20widget/Showproducts.dart';
 import 'package:provider/provider.dart';
 
 class productsmenu extends StatefulWidget {
@@ -45,10 +48,15 @@ class _productsmenuState extends State<productsmenu> {
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.green[300],
                       child: InkWell(
-                        onTap: () {
+                        onTap: () async {
                           print(value.getmenuname);
                           print(value.getlistofcategorysubject);
                           print(i);
+                          showProductsforMobile = await getBrandMobile(
+                              value.getlistofcategorysubject[i]);
+                          value.updateshowListformobile();
+                          value.changeProductMenu(showproducts());
+                          print(showProductsforMobile);
                         },
                         borderRadius: BorderRadius.circular(5),
                         child: Center(

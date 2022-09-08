@@ -121,13 +121,15 @@ class _ShopAppBarState extends State<ShopAppBar> {
                     flex: 3,
                     child: TextButton(
                       onPressed: () {
-                        value.listofmainpagesubjects();
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
                                   adminSignin(size: widget.size),
                             ));
+
+                        // value.listofmainpagesubjects();
+                        // value.updateshowListformainpage();
                       },
                       child: Text(
                         'ورود مدیران',

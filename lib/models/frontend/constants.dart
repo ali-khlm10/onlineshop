@@ -93,3 +93,9 @@ List CartList = [
     'price': '40000',
   },
 ];
+
+////////////////////////////////////////
+
+List showProductsforMobile = [];
+
+List showProductsforMainPage = [];

@@ -10,6 +10,7 @@ import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/a
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20product/updatemobileproduct.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobilemanagement.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/sellmanagement.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/body%20under%20of%20search%20widget/Showproducts.dart';
 
 class listofcategorysubjectProvider extends ChangeNotifier {
   List<String> _listofcategorysubject = listofmainpagecategory;
@@ -173,6 +174,33 @@ class listofcategorysubjectProvider extends ChangeNotifier {
 
   //////////////////////////////////////////////////////
 
+  List _showList = showProductsforMobile;
+
+  List get getshowList {
+    return _showList;
+  }
+
+  void updateshowListformobile() {
+    _showList = showProductsforMobile;
+    notifyListeners();
+  }
+
+  void updateshowListformainpage() {
+    _showList = showProductsforMainPage;
+    notifyListeners();
+  }
+
+  /////////////////////////////////////////////////
+  Widget _productMenu = showproducts();
+
+  Widget get getProductMenu {
+    return _productMenu;
+  }
+
+  void changeProductMenu(Widget menu) {
+    _productMenu = menu;
+    notifyListeners();
+  }
 }
 
 class CartProvider extends ChangeNotifier {
