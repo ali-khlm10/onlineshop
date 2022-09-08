@@ -14,6 +14,11 @@ class showProductInfo extends StatefulWidget {
 }
 
 class _showProductInfoState extends State<showProductInfo> {
+  int picture(String str) {
+    return pictures.indexOf(str);
+  }
+
+  ///////
   Widget returnContainer(String text_1, String text_2) {
     return Container(
       margin: const EdgeInsets.all(2),
@@ -70,7 +75,11 @@ class _showProductInfoState extends State<showProductInfo> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(15),
                         child: Image.asset(
-                          'assets/images/camera_1.jpg',
+                          (picture(value.getshowList[widget.Index]
+                                      ['picAddress']) !=
+                                  -1)
+                              ? 'assets/images/${value.getshowList[widget.Index]['picAddress']}'
+                              : 'assets/images/camera_1.jpg',
                         ),
                       ),
                       const SizedBox(

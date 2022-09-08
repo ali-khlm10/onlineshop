@@ -98,3 +98,21 @@ List CartList = [
 List showProductsforMobile = [];
 
 List showProductsforMainPage = [];
+////////////////////////////////////////////
+
+List pictures = [
+  'A13.jpg',
+  'A32.jpg',
+  'A53.jpg',
+  'C10.jpg',
+  'FA.jpg',
+  'iphon11.jpg',
+  'iphon12.jpg',
+  'iphon13.jpg',
+  'other.jpg',
+  'pocof3.jpg',
+  'pocom3.jpg',
+  'pocox4.jpg',
+  'TA.jpg',
+  'camera_1.jpg',
+];
