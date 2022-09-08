@@ -24,6 +24,7 @@ Future<void> main() async {
   }
   list_mobile_cats = await getAllMobileCats();
   list_of_products_for_mobile = await getAllMobiles();
+  showProductsforMobile = await getAllMobiles();
   runApp(const MyApp());
 }
 
