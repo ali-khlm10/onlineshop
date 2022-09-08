@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/cameramanagement.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/changepassword.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
@@ -28,11 +29,6 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     ),
   );
 
-  // Size? _mainsize;
-
-  // void setSize(Size size) {
-  //   _mainsize = size;
-  // }
   ////////////////////////////////////////////////
 
   List<String> get getlistofcategorysubject {
@@ -99,17 +95,17 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void afterchangepasswordbody(Size size, Future<bool> result) async {
+  void afterchangepasswordbody(Size size, bool result) {
     _panelItemsBody = Container(
       margin: EdgeInsets.symmetric(vertical: size.height * .2),
       padding: EdgeInsets.symmetric(horizontal: size.width * .2),
       child: Center(
         child: Text(
-          (await result == true)
+          (result)
               ? '. تغییر رمز با موفقیت انجام شد'
               : '. عملیات با خطا مواجه شد',
           style: TextStyle(
-            color: (await result == true) ? Colors.green : Colors.red,
+            color: (result == true) ? Colors.green : Colors.red,
           ),
         ),
       ),
@@ -187,6 +183,11 @@ class listofcategorysubjectProvider extends ChangeNotifier {
 
   void updateshowListformainpage() {
     _showList = showProductsforMainPage;
+    notifyListeners();
+  }
+
+  void showAllmobileformainpage() async {
+    _showList = await getAllMobiles();
     notifyListeners();
   }
 

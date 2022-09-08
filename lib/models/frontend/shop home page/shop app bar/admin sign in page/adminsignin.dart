@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/adminPanel.dart';
@@ -21,7 +23,7 @@ class _adminSigninState extends State<adminSignin> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('بخش ورود مدیران'),
+          title: const Text('بخش ورود مدیران'),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -39,15 +41,12 @@ class _adminSigninState extends State<adminSignin> {
                       top: widget.size.height * .18,
                       bottom: widget.size.height * .18,
                     ),
-                    // width: 350,
-                    // height: 380,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.teal[300],
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
                           height: widget.size.height * 0.05,
@@ -75,7 +74,7 @@ class _adminSigninState extends State<adminSignin> {
                           controller: usernameController,
                           decoration: InputDecoration(
                             contentPadding:
-                                EdgeInsets.symmetric(horizontal: 20),
+                                const EdgeInsets.symmetric(horizontal: 20),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -109,39 +108,38 @@ class _adminSigninState extends State<adminSignin> {
                         ),
                         ElevatedButton(
                           onPressed: () async {
-                            // if (await authenticateAdmin(usernameController.text,
-                            //     passwordController.text)) {
-                            //   usernameController.clear();
-                            //   passwordController.clear();
+                            if (await authenticateAdmin(usernameController.text,
+                                passwordController.text)) {
+                              usernameController.clear();
+                              passwordController.clear();
 
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    panelmanagement(size: widget.size),
-                              ),
-                            );
-                            // } else {
-                            //   usernameController.clear();
-                            //   passwordController.clear();
-                            //   ScaffoldMessenger.of(context).showSnackBar(
-                            //     SnackBar(
-                            //       content: const SizedBox(
-                            //         height: 50,
-                            //         child: Center(
-                            //           child: Text(
-                            //             '!! نام کاربری یا رمز عبور اشتباه است',
-                            //             style: TextStyle(
-                            //               color: Colors.white,
-                            //             ),
-                            //           ),
-                            //         ),
-                            //       ),
-                            //       backgroundColor: Colors.red[200],
-                            //     ),
-                            //   );
-                            //   // errortext = '!! نام کاربری یا رمز عبور اشتباه است';
-                            // }
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      panelmanagement(size: widget.size),
+                                ),
+                              );
+                            } else {
+                              usernameController.clear();
+                              passwordController.clear();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: const SizedBox(
+                                    height: 50,
+                                    child: Center(
+                                      child: Text(
+                                        '!! نام کاربری یا رمز عبور اشتباه است',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  backgroundColor: Colors.red[200],
+                                ),
+                              );
+                            }
                             setState(() {});
                           },
                           child: const Center(

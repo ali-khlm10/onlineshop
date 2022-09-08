@@ -49,14 +49,20 @@ class _productsmenuState extends State<productsmenu> {
                       color: Colors.green[300],
                       child: InkWell(
                         onTap: () async {
-                          print(value.getmenuname);
-                          print(value.getlistofcategorysubject);
-                          print('f mhgv mhg g ');
-                          showProductsforMobile = await getBrandMobile(
-                              value.getlistofcategorysubject[i]);
-                          value.updateshowListformobile();
-                          value.changeProductMenu(showproducts());
-                          print(showProductsforMobile);
+                          // print(value.getmenuname);
+                          // print(value.getlistofcategorysubject);
+                          // print(i);
+                          if (value.getmenuname == 'صفحه اصلی' && i == 0) {
+                            value.showAllmobileformainpage();
+                            value.changeProductMenu(showproducts());
+                          } else {
+                            showProductsforMobile = await getBrandMobile(
+                                value.getlistofcategorysubject[i]);
+                            value.updateshowListformobile();
+
+                            value.changeProductMenu(showproducts());
+                            print(showProductsforMobile);
+                          }
                         },
                         borderRadius: BorderRadius.circular(5),
                         child: Center(

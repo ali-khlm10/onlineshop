@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_cat_funcs.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
-import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
-import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20app%20bar/admin%20sign%20in%20page/admin%20panel%20page/admin%20panel%20page%20body/mobile%20management/mobile%20brand/addmobilebrand.dart';
 import 'package:provider/provider.dart';
 
 // ignore: camel_case_types
@@ -109,16 +107,41 @@ class _brandsmanagementState extends State<brandsmanagement> {
                               ),
                             );
                           } else {
-                            // listofmobilecategory.removeAt(selectedIndex);
-                            print(
-                                'catId${list_mobile_cats[selectedIndex]["catId"]}');
-                            deleteMobileCategory(
-                                list_mobile_cats[selectedIndex]['catId']);
-                            list_mobile_cats = await getAllMobileCats();
-                            print(list_mobile_cats);
-                            selectedIndex = -1;
-                            allcheckboxvalue.clear();
-                            addvalidator();
+                            List result = await getBrandMobile(
+                                list_mobile_cats[selectedIndex]["catName"]);
+                            if (result.isNotEmpty) {
+                              allcheckboxvalue.clear();
+                              addvalidator();
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: const SizedBox(
+                                    height: 50,
+                                    child: Center(
+                                      child: Text(
+                                        'شما نمی توانید این برند را حذف کنید چون محصولاتی از این برند در فروشگاه موجود است',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ),
+                                  backgroundColor: Colors.red[200],
+                                ),
+                              );
+                            } else {
+                              // listofmobilecategory.removeAt(selectedIndex);
+                              print(
+                                  'catId${list_mobile_cats[selectedIndex]["catId"]}');
+                              await deleteMobileCategory(
+                                  list_mobile_cats[selectedIndex]['catId']);
+                              list_mobile_cats = await getAllMobileCats();
+                              print(list_mobile_cats);
+                              selectedIndex = -1;
+                              allcheckboxvalue.clear();
+                              addvalidator();
+                            }
                           }
                           setState(() {});
                         },

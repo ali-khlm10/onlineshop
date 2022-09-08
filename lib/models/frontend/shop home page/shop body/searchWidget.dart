@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/body%20under%20of%20search%20widget/Showproducts.dart';
 import 'package:provider/provider.dart';
 
 class search extends StatefulWidget {
@@ -46,8 +47,16 @@ class _searchState extends State<search> {
                       onPressed: () async {
                         showProductsforMobile =
                             await getBrandMobile(textcontroller.text);
-                        value.updateshowListformobile();
-                        value.listofmobilesubjects();
+                        if (showProductsforMobile.isNotEmpty) {
+                          value.updateshowListformobile();
+                          value.listofmobilesubjects();
+                          value.changeProductMenu(showproducts());
+                        } else {
+                          value.listofmainpagesubjects();
+                          value.updateshowListformobile();
+                          value.changeProductMenu(showproducts());
+                        }
+
                         textcontroller.clear();
                       },
                       icon: const Icon(

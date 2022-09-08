@@ -98,12 +98,13 @@ class _changepassState extends State<changepass> {
               height: widget.size.height * 0.04,
             ),
             ElevatedButton(
-              onPressed: () {
-                Future<bool> result = updateAdminPassword(
+              onPressed: () async {
+                bool result = await updateAdminPassword(
                   usernameController.text,
                   currentpasswordController.text,
                   newpasswordController.text,
                 );
+                print(result);
                 usernameController.clear();
                 currentpasswordController.clear();
                 newpasswordController.clear();

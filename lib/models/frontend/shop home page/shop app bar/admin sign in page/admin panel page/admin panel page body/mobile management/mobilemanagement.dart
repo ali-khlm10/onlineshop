@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
@@ -29,7 +31,7 @@ class _mobilemanagementState extends State<mobilemanagement> {
               onPressed: () {
                 value.changebrandsmanagementbody(widget.size);
               },
-              child: Text('مدیریت برندهای موبایل'),
+              child: const Text('مدیریت برندهای موبایل'),
             ),
             const SizedBox(
               height: 10,
@@ -39,7 +41,7 @@ class _mobilemanagementState extends State<mobilemanagement> {
                 value.changeproductmanagementbody(widget.size);
                 print(list_of_products_for_mobile);
               },
-              child: Text('مدیریت محصول برای یک برند موبایل'),
+              child: const Text('مدیریت محصول برای یک برند موبایل'),
             ),
           ],
         ),

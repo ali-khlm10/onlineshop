@@ -14,6 +14,12 @@ class showproducts extends StatefulWidget {
 
 class _showproductsState extends State<showproducts> {
   late Size size = MediaQuery.of(context).size;
+
+  int picture(String str) {
+    return pictures.indexOf(str);
+  }
+
+  ///////////////
   @override
   Widget build(BuildContext context) {
     return Consumer<listofcategorysubjectProvider>(
@@ -44,7 +50,9 @@ class _showproductsState extends State<showproducts> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(15),
                           child: Image.asset(
-                            'assets/images/camera_1.jpg',
+                            (picture(value.getshowList[i]['picAddress']) != -1)
+                                ? 'assets/images/${value.getshowList[i]['picAddress']}'
+                                : 'assets/images/camera_1.jpg',
                           ),
                         ),
                         const SizedBox(

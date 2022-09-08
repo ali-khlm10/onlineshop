@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
 import 'package:onlineshop/models/backend/classes.dart';
@@ -26,6 +28,7 @@ class _addmobileproductState extends State<addmobileproduct> {
   }
 
   void deletecontrollers() {
+    // ignore: avoid_function_literals_in_foreach_calls
     controllers!.forEach((item) => item.clear());
   }
 
@@ -36,6 +39,7 @@ class _addmobileproductState extends State<addmobileproduct> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     addcontrollers();
     dropdownList = List.generate(
@@ -75,9 +79,7 @@ class _addmobileproductState extends State<addmobileproduct> {
   Widget build(BuildContext context) {
     return Consumer<listofcategorysubjectProvider>(
       builder: (context, provider, child) => Container(
-        // color: Colors.yellow,
         margin: EdgeInsets.symmetric(
-          // horizontal: widget.size.width * .04,
           vertical: widget.size.height * .05,
         ),
         height: widget.size.height * .8,
@@ -86,12 +88,10 @@ class _addmobileproductState extends State<addmobileproduct> {
           children: [
             SizedBox(
               height: widget.size.height * .7,
-              // color: Colors.red,
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Row(
-                      // mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Expanded(
                           flex: 5,
@@ -166,35 +166,29 @@ class _addmobileproductState extends State<addmobileproduct> {
                   child: ElevatedButton(
                     onPressed: () async {
                       addinputstext();
-                      try {
-                        await addMobile(
-                          Mobile(
-                            name: controllers![0].text,
-                            catId: list_mobile_cats[
-                                dropdownList!.indexOf(dropdownValue!)]['catId'],
-                            catName: list_mobile_cats[dropdownList!
-                                .indexOf(dropdownValue!)]['catName'],
-                            productId: int.parse(controllers![1].text),
-                            picAddress: controllers![2].text,
-                            weight: controllers![3].text,
-                            color: controllers![4].text,
-                            battery: controllers![5].text,
-                            internalStorage: controllers![6].text,
-                            frontCameraResolution: controllers![7].text,
-                            backCameraResolution: controllers![8].text,
-                            explain: controllers![9].text,
-                            price: controllers![10].text,
-                            stock: int.parse(controllers![11].text),
-                          ),
-                        );
-                      } catch (e) {
-                        print('Eroordatabase : $e');
-                      }
+                      await addMobile(
+                        Mobile(
+                          name: controllers![0].text,
+                          catId: list_mobile_cats[
+                              dropdownList!.indexOf(dropdownValue!)]['catId'],
+                          catName: list_mobile_cats[
+                              dropdownList!.indexOf(dropdownValue!)]['catName'],
+                          productId: int.parse(controllers![1].text),
+                          picAddress: controllers![2].text,
+                          weight: controllers![3].text,
+                          color: controllers![4].text,
+                          battery: controllers![5].text,
+                          internalStorage: controllers![6].text,
+                          frontCameraResolution: controllers![7].text,
+                          backCameraResolution: controllers![8].text,
+                          explain: controllers![9].text,
+                          price: controllers![10].text,
+                          stock: int.parse(controllers![11].text),
+                        ),
+                      );
+
                       list_of_products_for_mobile = await getAllMobiles();
 
-                      // list_of_products_for_mobile.forEach((element) {
-                      //   print(element['name']);
-                      // });
                       deletecontrollers();
                       provider.changeproductmanagementbody(widget.size);
 
