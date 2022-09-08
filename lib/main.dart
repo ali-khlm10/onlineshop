@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/homepage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'models/backend/Sqlite Functions/mobile_cat_funcs.dart';
@@ -19,6 +20,27 @@ Future<void> main() async {
   try {
     Database db = await openDB();
     await addAdmin('admin', 'admin');
+    print(
+      await editMobile(
+        Mobile(
+          name: 'iphone',
+          catName: 'apple',
+          catId: 0,
+          productId: 20,
+          picAddress: 'picAddress',
+          weight: 'weight',
+          color: 'color',
+          battery: 'battery',
+          internalStorage: 'internalStorage',
+          frontCameraResolution: 'frontCameraResolution',
+          backCameraResolution: 'backCameraResolution',
+          explain: 'explain',
+          price: '8569',
+          stock: 3,
+        ),
+      ),
+    );
+    print(await getAllMobiles());
   } catch (e) {
     print('ErrorS1: $e');
   }

@@ -39,6 +39,8 @@ Future<bool> editMobile(Mobile mobile) async {
     await database.update(
       'Mobile',
       mobile.toMap(),
+      where: 'productId = ?',
+      whereArgs: [mobile.productId]
     );
     await database.close();
     return true;
