@@ -133,10 +133,11 @@ class _productsmanagementState extends State<productsmanagement> {
                                   height: 50,
                                   child: Center(
                                     child: Text(
-                                      '!!لطفااز بخش مدیریت برند های موبایل یک برند جدید اضافه کنید',
+                                      'لطفااز بخش مدیریت برند های موبایل یک برند جدید اضافه کنید',
                                       style: TextStyle(
                                         color: Colors.white,
                                       ),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
                                 ),

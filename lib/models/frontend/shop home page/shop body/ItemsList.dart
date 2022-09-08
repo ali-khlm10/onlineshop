@@ -54,18 +54,23 @@ class _ItemslistState extends State<Itemslist> {
                     if (index == 0) {
                       value.listofmainpagesubjects();
                       value.updateshowListformainpage();
+                      value.changeProductMenu(showproducts());
                     } else if (index == 1) {
                       value.listofmobilesubjects();
-                      value.updateshowListformainpage();
+                      // value.updateshowListformainpage();
+                      value.changeProductMenu(showproducts());
                     } else if (index == 2) {
                       value.listofcamerasubjects();
                       value.updateshowListformainpage();
+                      value.changeProductMenu(showproducts());
                     } else if (index == 3) {
                       value.listofhomeappliancessubjects();
                       value.updateshowListformainpage();
+                      value.changeProductMenu(showproducts());
                     } else if (index == 4) {
                       value.listofcomputersubjects();
                       value.updateshowListformainpage();
+                      value.changeProductMenu(showproducts());
                     }
                   },
                   child: SizedBox(
