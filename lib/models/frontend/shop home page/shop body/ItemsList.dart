@@ -58,7 +58,7 @@ class _ItemslistState extends State<Itemslist> {
                       value.changeProductMenu(showproducts());
                     } else if (index == 1) {
                       value.listofmobilesubjects();
-                      // value.updateshowListformainpage();
+                      value.showAllmobileformainpage();
                       value.changeProductMenu(showproducts());
                     } else if (index == 2) {
                       value.listofcamerasubjects();
