@@ -47,15 +47,39 @@ Future<bool> authenticateAdmin(String userName, String password) async {
 
 Future<bool> updateAdminPassword(
     String userName, String oldPassword, String newPassword) async {
+  Database database;
   try {
-    Database database = await openDB();
-    await database.update('Admin', {'password': newPassword},
-        where: 'userName = ? AND password = ?',
-        whereArgs: [userName, oldPassword]);
-    await database.close();
-    return true;
+    database = await openDB();
   } catch (e) {
     print('Error: $e');
     return false;
   }
+  try {
+    List<Map<String, Object?>> pass = await database.query(
+      'Admin',
+      columns: ['password'],
+      where: 'userName = ?',
+      whereArgs: [userName],
+    );
+    if (pass[0]['password'].toString() == oldPassword) {
+      await database.update('Admin', {'password': newPassword},
+          where: 'userName = ? AND password = ?',
+          whereArgs: [userName, oldPassword]);
+      await database.close();
+      return true;
+    }
+    else{
+      return false;
+    }
+  } catch (e) {
+    print('Error: $e');
+    return false;
+  }
+}
+
+Future<List<Map<String, Object?>>> aa(String userName) async {
+  Database database = await openDB();
+  List<Map<String, Object?>> pass = await database.query('Admin',
+      columns: ['password'], where: 'userName = ?', whereArgs: [userName]);
+  return pass;
 }

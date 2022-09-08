@@ -33,21 +33,6 @@ Future<bool> deleteOrder(int orderId) async {
   }
 }
 
-Future<bool> editOrder(Order order) async {
-  try {
-    Database database = await openDB();
-    await database.update(
-      'Orders',
-      order.toMap(),
-    );
-    await database.close();
-    return true;
-  } catch (e) {
-    print('Error: $e');
-    return false;
-  }
-}
-
 Future<List<Map<String, Object?>>> getAllOrders() async {
   try {
     Database database = await openDB();

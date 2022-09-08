@@ -19,6 +19,8 @@ Future<void> main() async {
   try {
     Database db = await openDB();
     await addAdmin('admin', 'admin');
+    await addAdmin('admin1', 'admin1');
+    print(await aa('admin'));
   } catch (e) {
     print('ErrorS1: $e');
   }
