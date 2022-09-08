@@ -51,7 +51,7 @@ class _productsmenuState extends State<productsmenu> {
                         onTap: () async {
                           print(value.getmenuname);
                           print(value.getlistofcategorysubject);
-                          print(i);
+                          print('f mhgv mhg g ');
                           showProductsforMobile = await getBrandMobile(
                               value.getlistofcategorysubject[i]);
                           value.updateshowListformobile();

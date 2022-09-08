@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/body%20under%20of%20search%20widget/Showproducts.dart';
 import 'package:provider/provider.dart';
 
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
@@ -52,14 +53,19 @@ class _ItemslistState extends State<Itemslist> {
                   onTap: () {
                     if (index == 0) {
                       value.listofmainpagesubjects();
+                      value.updateshowListformainpage();
                     } else if (index == 1) {
                       value.listofmobilesubjects();
+                      value.updateshowListformainpage();
                     } else if (index == 2) {
                       value.listofcamerasubjects();
+                      value.updateshowListformainpage();
                     } else if (index == 3) {
                       value.listofhomeappliancessubjects();
+                      value.updateshowListformainpage();
                     } else if (index == 4) {
                       value.listofcomputersubjects();
+                      value.updateshowListformainpage();
                     }
                   },
                   child: SizedBox(

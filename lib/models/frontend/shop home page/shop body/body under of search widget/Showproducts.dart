@@ -31,9 +31,9 @@ class _showproductsState extends State<showproducts> {
               children: [
                 for (var i = 0; i < value.getshowList.length; i++) ...[
                   Container(
-                    height: size.height * .15,
+                    height: size.height * .18,
                     margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.blueGrey[200],
@@ -47,35 +47,48 @@ class _showproductsState extends State<showproducts> {
                             'assets/images/camera_1.jpg',
                           ),
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              value.getshowList[i]['name'],
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                              textAlign: TextAlign.end,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                value.changeProductMenu(showProductInfo(
-                                  Index: i,
-                                  size: size,
-                                ));
-                              },
-                              child: const Text(
-                                'اطلاعات بیشتر',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  decoration: TextDecoration.underline,
-                                  color: Colors.blue,
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.topRight,
+                                  child: Text(
+                                    value.getshowList[i]['name'],
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.end,
+                                  ),
                                 ),
-                                textAlign: TextAlign.end,
                               ),
-                            ),
-                          ],
+                              Container(
+                                alignment: Alignment.bottomRight,
+                                child: InkWell(
+                                  onTap: () {
+                                    value.changeProductMenu(showProductInfo(
+                                      Index: i,
+                                      size: size,
+                                    ));
+                                  },
+                                  child: const Text(
+                                    'اطلاعات بیشتر',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      decoration: TextDecoration.underline,
+                                      color: Colors.blue,
+                                    ),
+                                    textAlign: TextAlign.end,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

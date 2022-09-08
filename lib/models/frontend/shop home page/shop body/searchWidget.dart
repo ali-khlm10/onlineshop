@@ -47,6 +47,7 @@ class _searchState extends State<search> {
                         showProductsforMobile =
                             await getBrandMobile(textcontroller.text);
                         value.updateshowListformobile();
+                        value.listofmobilesubjects();
                         textcontroller.clear();
                       },
                       icon: const Icon(

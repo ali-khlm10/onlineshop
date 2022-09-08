@@ -203,6 +203,7 @@ class listofcategorysubjectProvider extends ChangeNotifier {
   }
 }
 
+///////////////////////////////////////////////////////////////////////////
 class CartProvider extends ChangeNotifier {
   List _cartList = [];
 
