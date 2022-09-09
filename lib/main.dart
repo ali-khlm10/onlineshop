@@ -3,11 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
-import 'package:onlineshop/models/backend/Sqlite%20Functions/order_funcs.dart';
-import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/homepage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'models/backend/Sqlite Functions/mobile_cat_funcs.dart';
+import 'models/backend/Sqlite Functions/order_funcs.dart';
 import 'models/backend/Sqlite Functions/sqlite_funcs.dart';
 import 'models/frontend/constants.dart';
 
@@ -21,6 +20,7 @@ Future<void> main() async {
   try {
     Database db = await openDB();
     await addAdmin('admin', 'admin');
+    print(await lastNum());
   } catch (e) {
     print('ErrorS1: $e');
   }

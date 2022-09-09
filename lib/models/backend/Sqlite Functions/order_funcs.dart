@@ -70,3 +70,19 @@ Future<List<Map<String, Object?>>> getOrder(int orderId) async {
     return [];
   }
 }
+
+
+Future<int> lastNum() async {
+  try {
+    Database database = await openDB();
+    List<Map<String, Object?>> data = await database.query(
+      'Orders',
+    );
+    await database.close();
+    return data.length;
+
+  } catch (e) {
+    print('Error: $e');
+    return -1;
+  }
+}
