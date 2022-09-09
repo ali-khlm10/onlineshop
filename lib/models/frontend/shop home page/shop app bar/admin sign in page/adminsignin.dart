@@ -52,7 +52,7 @@ class _adminSigninState extends State<adminSignin> {
                           height: widget.size.height * 0.05,
                         ),
                         const Text(
-                          'پنل مدیریت سایت',
+                          'پنل مدیریت برنامه',
                           style: TextStyle(
                             color: Colors.white,
                           ),

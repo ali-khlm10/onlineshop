@@ -24,7 +24,6 @@ class _homePageState extends State<homePage> {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ShopAppBar(size: size),
                 search(size: size),
@@ -41,11 +40,6 @@ class _homePageState extends State<homePage> {
           ),
         ),
       ),
-      // appBar: Appbar(context, size),
-      // body: ChangeNotifierProvider(
-      //   create: (_) => listofcategorysubjectProvider(),
-      //   child: Body(size: size),
-      // ),
     );
   }
 }

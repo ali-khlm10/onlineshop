@@ -170,7 +170,7 @@ class _productsmanagementState extends State<productsmanagement> {
                             const EdgeInsets.only(left: 5, top: 5, bottom: 5),
                         alignment: Alignment.center,
                         child: const Text(
-                          'نام برند',
+                          'نام محصول',
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -185,7 +185,7 @@ class _productsmanagementState extends State<productsmanagement> {
                             const EdgeInsets.only(left: 5, top: 5, bottom: 5),
                         alignment: Alignment.center,
                         child: const Text(
-                          'نام محصول',
+                          'نام برند',
                           style: TextStyle(
                             color: Colors.white,
                           ),

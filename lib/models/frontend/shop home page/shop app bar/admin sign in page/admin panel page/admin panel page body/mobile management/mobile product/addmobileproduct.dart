@@ -166,26 +166,30 @@ class _addmobileproductState extends State<addmobileproduct> {
                   child: ElevatedButton(
                     onPressed: () async {
                       addinputstext();
-                      await addMobile(
-                        Mobile(
-                          name: controllers![0].text,
-                          catId: list_mobile_cats[
-                              dropdownList!.indexOf(dropdownValue!)]['catId'],
-                          catName: list_mobile_cats[
-                              dropdownList!.indexOf(dropdownValue!)]['catName'],
-                          productId: int.parse(controllers![1].text),
-                          picAddress: controllers![2].text,
-                          weight: controllers![3].text,
-                          color: controllers![4].text,
-                          battery: controllers![5].text,
-                          internalStorage: controllers![6].text,
-                          frontCameraResolution: controllers![7].text,
-                          backCameraResolution: controllers![8].text,
-                          explain: controllers![9].text,
-                          price: controllers![10].text,
-                          stock: int.parse(controllers![11].text),
-                        ),
-                      );
+                      try {
+                        await addMobile(
+                          Mobile(
+                            name: controllers![0].text,
+                            catId: list_mobile_cats[
+                                dropdownList!.indexOf(dropdownValue!)]['catId'],
+                            catName: list_mobile_cats[dropdownList!
+                                .indexOf(dropdownValue!)]['catName'],
+                            productId: int.parse(controllers![1].text),
+                            picAddress: controllers![2].text,
+                            weight: controllers![3].text,
+                            color: controllers![4].text,
+                            battery: controllers![5].text,
+                            internalStorage: controllers![6].text,
+                            frontCameraResolution: controllers![7].text,
+                            backCameraResolution: controllers![8].text,
+                            explain: controllers![9].text,
+                            price: controllers![10].text,
+                            stock: int.parse(controllers![11].text),
+                          ),
+                        );
+                      } catch (e) {
+                        print(e);
+                      }
 
                       list_of_products_for_mobile = await getAllMobiles();
 
