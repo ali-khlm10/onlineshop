@@ -138,19 +138,16 @@ class Mobile {
 class Order {
   final int orderId;
   final int productId;
-  final String status;
 
   Order(
       {
       required this.orderId,
-      required this.productId,
-      required this.status});
+      required this.productId});
 
   Map<String, Object> toMap() {
     return {
       'orderId': orderId,
       'productId': productId,
-      'status': status,
     };
   }
 }
