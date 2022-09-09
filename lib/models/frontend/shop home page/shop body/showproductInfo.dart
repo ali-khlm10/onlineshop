@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/order_funcs.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
+import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/body%20under%20of%20search%20widget/Showproducts.dart';
 import 'package:provider/provider.dart';
 
 class showProductInfo extends StatefulWidget {
@@ -141,6 +142,8 @@ class _showProductInfoState extends State<showProductInfo> {
                         onPressed: () {
                           CartList.add(value.getshowList[widget.Index]);
                           value.updateCartList();
+                          value.changeProductMenu(showproducts());
+
                           print(CartList);
                         },
                         style: ElevatedButton.styleFrom(

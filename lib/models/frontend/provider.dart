@@ -215,17 +215,3 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
-
-///////////////////////////////////////////////////////////////////////////
-class CartProvider extends ChangeNotifier {
-  List _cartList = [];
-
-  List get getCartsList {
-    return _cartList;
-  }
-
-  void Carts() {
-    _cartList = CartList;
-    notifyListeners();
-  }
-}

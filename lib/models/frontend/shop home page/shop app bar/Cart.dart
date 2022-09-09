@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/order_funcs.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -20,9 +21,9 @@ class _CartsState extends State<Carts> {
           centerTitle: true,
         ),
         body: SingleChildScrollView(
-          child: ChangeNotifierProvider<CartProvider>(
-            create: (_) => CartProvider(),
-            child: Consumer<CartProvider>(
+          child: ChangeNotifierProvider<listofcategorysubjectProvider>(
+            create: (_) => listofcategorysubjectProvider(),
+            child: Consumer<listofcategorysubjectProvider>(
               builder: (context, value, child) => Container(
                 // height: 200,
                 margin: EdgeInsets.symmetric(
@@ -91,16 +92,31 @@ class _CartsState extends State<Carts> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      Text(CartList[i]['product']),
-                                      Text(CartList[i]['price']),
-                                      IconButton(
-                                        onPressed: () {
-                                          CartList.removeAt(i);
-                                          // value.getCartsList;
-                                          setState(() {});
-                                        },
-                                        icon: Icon(Icons.delete),
-                                        color: Colors.red,
+                                      Expanded(
+                                        child: Center(
+                                          child: Text(
+                                            CartList[i]['name'],
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Center(
+                                          child: Text(
+                                            CartList[i]['price'],
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: IconButton(
+                                          onPressed: () {
+                                            CartList.removeAt(i);
+                                            value.updateCartList();
+                                            print(CartList);
+                                            setState(() {});
+                                          },
+                                          icon: Icon(Icons.delete),
+                                          color: Colors.red,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -114,7 +130,10 @@ class _CartsState extends State<Carts> {
                     SizedBox(
                       width: widget.size.width / 3,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // addOrders(CartList);
+                          Navigator.pop(context);
+                        },
                         child: Text('پرداخت'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.green,
