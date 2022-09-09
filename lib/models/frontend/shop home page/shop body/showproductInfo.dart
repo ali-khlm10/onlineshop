@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/order_funcs.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/shop%20body/body%20under%20of%20search%20widget/Showproducts.dart';
@@ -139,12 +140,21 @@ class _showProductInfoState extends State<showProductInfo> {
                         height: 20,
                       ),
                       ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           CartList.add(value.getshowList[widget.Index]);
+                          DBCartList.add(
+                            Order(
+                              orderId: await lastNum(),
+                              productId: value.getshowList[widget.Index]
+                                  ['productId'],
+                            ),
+                          );
+
                           value.updateCartList();
                           value.changeProductMenu(showproducts());
 
                           print(CartList);
+                          print(DBCartList);
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.green[600],

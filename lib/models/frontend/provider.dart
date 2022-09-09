@@ -214,4 +214,27 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     _CartList = CartList;
     notifyListeners();
   }
+
+//////////////////////////////////////////
+  List _sellorders = Orders;
+  int _index = Index;
+
+  List get getsellorders {
+    return _sellorders;
+  }
+
+  int get getIndex {
+    return _index;
+  }
+
+  void updatesellorders() {
+    _sellorders = Orders;
+    _index = Index;
+    notifyListeners();
+  }
+
+  void clearsellorders() {
+    _sellorders = [];
+    notifyListeners();
+  }
 }

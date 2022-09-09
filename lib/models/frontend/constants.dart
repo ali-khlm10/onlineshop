@@ -1,6 +1,6 @@
 //
 
-import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 
 const List<String> listofCategories = [
   'صفحه اصلی',
@@ -83,6 +83,12 @@ List<String> mobiledetaillabels = [
 ////////////////////////////////////////////
 
 List CartList = [];
+
+List<Order> DBCartList = [];
+
+List Orders = [];
+
+int Index = 0;
 
 ////////////////////////////////////////
 

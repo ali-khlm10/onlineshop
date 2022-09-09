@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/order_funcs.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -111,7 +112,10 @@ class _CartsState extends State<Carts> {
                                           onPressed: () {
                                             CartList.removeAt(i);
                                             value.updateCartList();
+                                            DBCartList.removeAt(i);
                                             print(CartList);
+                                            print(DBCartList);
+
                                             setState(() {});
                                           },
                                           icon: Icon(Icons.delete),
@@ -130,8 +134,17 @@ class _CartsState extends State<Carts> {
                     SizedBox(
                       width: widget.size.width / 3,
                       child: ElevatedButton(
-                        onPressed: () {
-                          // addOrders(CartList);
+                        onPressed: () async {
+                          print(CartList);
+                          print(DBCartList);
+                          // print(DBCartList);
+                          // for (var i = 0; i < DBCartList.length; i++) {
+                          //   print(DBCartList[i].productId);
+                          // }
+                          await addOrders(DBCartList);
+                          DBCartList.clear();
+                          CartList.clear();
+
                           Navigator.pop(context);
                         },
                         child: Text('پرداخت'),

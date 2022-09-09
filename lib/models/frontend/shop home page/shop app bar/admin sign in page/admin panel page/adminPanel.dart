@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/order_funcs.dart';
 import 'package:onlineshop/models/frontend/constants.dart';
 import 'package:onlineshop/models/frontend/provider.dart';
 import 'package:provider/provider.dart';
@@ -47,12 +48,26 @@ class _panelmanagementState extends State<panelmanagement> {
                             color: Colors.blue,
                             child: InkWell(
                               borderRadius: BorderRadius.circular(5),
-                              onTap: () {
+                              onTap: () async {
                                 if (index == 0) {
                                   value.changemobilemanagementbody(widget.size);
                                 } else if (index == 1) {
                                   value.changecameramanagementbody(widget.size);
                                 } else if (index == 2) {
+                                  value.clearsellorders();
+                                  int result = await lastNum();
+                                  List orderList = [];
+                                  Index = result;
+                                  print(result);
+                                  for (var i = 0; i < result; i++) {
+                                    orderList.add(await getOrder(i));
+                                    print(await getOrder(i));
+                                  }
+
+                                  Orders = orderList;
+                                  print(Orders.length);
+                                  value.updatesellorders();
+                                  // print(value.getsellorders[0][0]);
                                   value.changesellmanagementbody(widget.size);
                                 } else if (index == 3) {
                                   value.changepasswordbody(widget.size);
