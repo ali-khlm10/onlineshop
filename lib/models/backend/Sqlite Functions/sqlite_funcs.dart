@@ -74,8 +74,7 @@ _onCreate(Database db, int version) async {
   String orderTable = """ 
     CREATE TABLE IF NOT EXISTS Orders(
     orderId INTEGER PRIMARY KEY,
-    productId INTEGER,
-    status TEXT)""";
+    productId INTEGER)""";
 
   String userTable = """ 
     CREATE TABLE IF NOT EXISTS User(
