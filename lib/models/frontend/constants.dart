@@ -82,16 +82,7 @@ List<String> mobiledetaillabels = [
 ];
 ////////////////////////////////////////////
 
-List CartList = [
-  {
-    'product': 'apple',
-    'price': '35000',
-  },
-  {
-    'product': 'lg',
-    'price': '40000',
-  },
-];
+List CartList = [];
 
 ////////////////////////////////////////
 

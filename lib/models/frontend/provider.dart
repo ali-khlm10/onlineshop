@@ -202,6 +202,18 @@ class listofcategorysubjectProvider extends ChangeNotifier {
     _productMenu = menu;
     notifyListeners();
   }
+
+  //////////////////////////////////////////////
+  List _CartList = CartList;
+
+  List get getCartList {
+    return _CartList;
+  }
+
+  void updateCartList() {
+    _CartList = CartList;
+    notifyListeners();
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////

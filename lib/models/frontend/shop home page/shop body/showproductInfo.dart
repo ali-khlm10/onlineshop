@@ -138,13 +138,15 @@ class _showProductInfoState extends State<showProductInfo> {
                         height: 20,
                       ),
                       ElevatedButton(
-                        onPressed: () async {
-                          // await addOrder()
+                        onPressed: () {
+                          CartList.add(value.getshowList[widget.Index]);
+                          value.updateCartList();
+                          print(CartList);
                         },
-                        child: Text('افزودن به سبد'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.green[600],
                         ),
+                        child: const Text('افزودن به سبد'),
                       )
                     ],
                   ),
