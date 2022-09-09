@@ -4,11 +4,13 @@ import 'package:onlineshop/models/backend/Sqlite%20Functions/sqlite_funcs.dart';
 import 'package:onlineshop/models/backend/classes.dart';
 import 'package:sqflite/sqflite.dart';
 
-Future<bool> addOrder(Order order) async {
+Future<bool> addOrders(List<Order> orders) async {
   try {
     Database database = await openDB();
-    int res = await database.insert('Orders', order.toMap());
-    print('res = $res');
+    for (var element in orders) {
+      int res = await database.insert('Orders', element.toMap());
+      print('res = $res');
+    }
     await database.close();
     return true;
   } catch (e) {
@@ -45,15 +47,22 @@ Future<List<Map<String, Object?>>> getAllOrders() async {
   }
 }
 
-Future<List<Map<String, Object?>>> getOrders(int orderId) async {
+Future<List<Map<String, Object?>>> getOrder(int orderId) async {
+  // productName, brand, price
   try {
     Database database = await openDB();
-    List<Map<String, Object?>> data = await database.query(
+    List<Map<String, Object?>> productId = await database.query(
       'Orders',
       where: 'orderId = ?',
       whereArgs: [orderId],
+      columns: ['productId'],
     );
-    // data[0].
+    List<Map<String, Object?>> data = await database.query(
+      'Mobile',
+      where: 'productId = ?',
+      whereArgs: [productId[0]['productId']],
+      columns: ['name', 'catName', 'price'],
+    );
     await database.close();
     return data;
   } catch (e) {

@@ -21,15 +21,22 @@ Future<void> main() async {
   try {
     Database db = await openDB();
     await addAdmin('admin', 'admin');
-    await addOrder(
+    await addOrders([
       Order(
-        customerId: 1,
-        orderId: 1,
-        productId: 1,
+        customerId: 3,
+        orderId: 3,
+        productId: 3,
         status: 'status',
       ),
-    );
-    print(await getOrders(1));
+      Order(
+        customerId: 4,
+        orderId: 4,
+        productId: 4,
+        status: 'status',
+      ),
+    ]);
+    print(await getAllOrders());
+    // print(await getAllMobiles());
   } catch (e) {
     print('ErrorS1: $e');
   }
