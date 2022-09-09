@@ -191,7 +191,6 @@ class _updatemobileproductState extends State<updatemobileproduct> {
                   child: ElevatedButton(
                     onPressed: () async {
                       addinputstext();
-                      print(controllers![0].text);
                       await editMobile(
                         Mobile(
                           name: controllers![0].text,
