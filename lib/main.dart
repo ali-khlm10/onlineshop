@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/admin_funcs.dart';
 import 'package:onlineshop/models/backend/Sqlite%20Functions/mobile_func.dart';
+import 'package:onlineshop/models/backend/Sqlite%20Functions/order_funcs.dart';
+import 'package:onlineshop/models/backend/classes.dart';
 import 'package:onlineshop/models/frontend/shop%20home%20page/homepage.dart';
 import 'package:sqflite/sqflite.dart';
 import 'models/backend/Sqlite Functions/mobile_cat_funcs.dart';
@@ -19,8 +21,15 @@ Future<void> main() async {
   try {
     Database db = await openDB();
     await addAdmin('admin', 'admin');
-    await addAdmin('admin1', 'admin1');
-    print(await aa('admin'));
+    await addOrder(
+      Order(
+        customerId: 1,
+        orderId: 1,
+        productId: 1,
+        status: 'status',
+      ),
+    );
+    print(await getOrders(1));
   } catch (e) {
     print('ErrorS1: $e');
   }

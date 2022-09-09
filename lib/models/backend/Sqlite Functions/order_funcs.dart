@@ -44,3 +44,20 @@ Future<List<Map<String, Object?>>> getAllOrders() async {
     return [];
   }
 }
+
+Future<List<Map<String, Object?>>> getOrders(int orderId) async {
+  try {
+    Database database = await openDB();
+    List<Map<String, Object?>> data = await database.query(
+      'Orders',
+      where: 'orderId = ?',
+      whereArgs: [orderId],
+    );
+    // data[0].
+    await database.close();
+    return data;
+  } catch (e) {
+    print('Error: $e');
+    return [];
+  }
+}

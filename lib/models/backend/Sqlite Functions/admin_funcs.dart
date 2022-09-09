@@ -57,29 +57,21 @@ Future<bool> updateAdminPassword(
   try {
     List<Map<String, Object?>> pass = await database.query(
       'Admin',
-      columns: ['password'],
       where: 'userName = ?',
       whereArgs: [userName],
     );
-    if (pass[0]['password'].toString() == oldPassword) {
+    if (pass[0]['password'].toString() == oldPassword &&
+        pass[0]['userName'].toString() == userName) {
       await database.update('Admin', {'password': newPassword},
           where: 'userName = ? AND password = ?',
           whereArgs: [userName, oldPassword]);
       await database.close();
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   } catch (e) {
     print('Error: $e');
     return false;
   }
-}
-
-Future<List<Map<String, Object?>>> aa(String userName) async {
-  Database database = await openDB();
-  List<Map<String, Object?>> pass = await database.query('Admin',
-      columns: ['password'], where: 'userName = ?', whereArgs: [userName]);
-  return pass;
 }
