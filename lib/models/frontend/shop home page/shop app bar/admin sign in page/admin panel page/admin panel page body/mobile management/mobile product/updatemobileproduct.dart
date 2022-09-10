@@ -219,6 +219,9 @@ class _updatemobileproductState extends State<updatemobileproduct> {
                       provider.changeproductmanagementbody(widget.size);
 
                       setState(() {});
+                      provider.listofmainpagesubjects();
+                      provider.updateshowListformainpage();
+                      provider.showAllmobileformainpage();
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.green,

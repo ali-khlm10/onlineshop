@@ -36,21 +36,6 @@ PreferredSizeWidget Appbar(BuildContext context, Size size) {
     ),
     leadingWidth: size.width * .33,
     actions: [
-      // SizedBox(
-      //   width: 150,
-      //   child: Center(
-      //     child: TextField(
-      //       decoration: InputDecoration(
-      //         contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-      //         border: OutlineInputBorder(
-      //           borderRadius: BorderRadius.circular(15),
-      //         ),
-      //         isDense: true,
-      //       ),
-      //       maxLines: 2,
-      //     ),
-      //   ),
-      // ),
       const SizedBox(width: 20),
       Container(
         alignment: Alignment.center,
@@ -127,9 +112,6 @@ class _ShopAppBarState extends State<ShopAppBar> {
                               builder: (context) =>
                                   adminSignin(size: widget.size),
                             ));
-
-                        // value.listofmainpagesubjects();
-                        // value.updateshowListformainpage();
                       },
                       child: Text(
                         'ورود مدیران',

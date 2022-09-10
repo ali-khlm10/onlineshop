@@ -98,6 +98,9 @@ class _updatemobilebrandState extends State<updatemobilebrand> {
 
                       print(list_mobile_cats);
                       value.changebrandsmanagementbody(widget.size);
+                      value.listofmainpagesubjects();
+                      value.updateshowListformainpage();
+                      value.showAllmobileformainpage();
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.green,

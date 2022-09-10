@@ -19,24 +19,21 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ChangeNotifierProvider<listofcategorysubjectProvider>(
-        create: (_) => listofcategorysubjectProvider(),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                ShopAppBar(size: size),
-                search(size: size),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Divider(
-                    color: Colors.grey,
-                  ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ShopAppBar(size: size),
+              search(size: size),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Divider(
+                  color: Colors.grey,
                 ),
-                Itemslist(size: size),
-                Body(size: size),
-              ],
-            ),
+              ),
+              Itemslist(size: size),
+              Body(size: size),
+            ],
           ),
         ),
       ),

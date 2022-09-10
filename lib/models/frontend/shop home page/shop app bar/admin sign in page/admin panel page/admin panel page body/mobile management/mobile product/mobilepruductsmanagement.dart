@@ -111,6 +111,9 @@ class _productsmanagementState extends State<productsmanagement> {
                             selectedIndex = -1;
                             allcheckboxvalue.clear();
                             addvalidator();
+                            value.listofmainpagesubjects();
+                            value.updateshowListformainpage();
+                            value.showAllmobileformainpage();
                           }
                           setState(() {});
                         },

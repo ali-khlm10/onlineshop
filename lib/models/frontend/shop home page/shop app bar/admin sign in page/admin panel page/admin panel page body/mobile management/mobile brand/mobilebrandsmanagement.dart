@@ -141,6 +141,9 @@ class _brandsmanagementState extends State<brandsmanagement> {
                               selectedIndex = -1;
                               allcheckboxvalue.clear();
                               addvalidator();
+                              value.listofmainpagesubjects();
+                              value.updateshowListformainpage();
+                              value.showAllmobileformainpage();
                             }
                           }
                           setState(() {});

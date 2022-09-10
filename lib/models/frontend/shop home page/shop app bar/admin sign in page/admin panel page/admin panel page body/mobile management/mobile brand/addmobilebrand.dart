@@ -81,6 +81,9 @@ class _addmobilebrandState extends State<addmobilebrand> {
                       print(list_mobile_cats);
                       // list_mobile_cats.add(mobilebrandcontroller.text);
                       value.changebrandsmanagementbody(widget.size);
+                      value.listofmainpagesubjects();
+                      value.updateshowListformainpage();
+                      value.showAllmobileformainpage();
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.green,
